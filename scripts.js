@@ -203,7 +203,7 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 document.addEventListener('DOMContentLoaded', function() {
-    const formContainer = document.querySelector('.contact-form-container');
+    const formContainer = document.querySelector('.contact-form-wrapper');
     const inputs = formContainer.querySelectorAll('input, textarea');
 
     inputs.forEach(input => {

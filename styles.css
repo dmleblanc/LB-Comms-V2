@@ -598,23 +598,50 @@ button.toggle-details:hover {
 }
 
 .contact-form-wrapper {
+    position: relative; /* Required for absolute positioning */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    justify-content: center; /* Center horizontally */
+    align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
     background-color: #f0f0f0; /* Optional: background color for the wrapper */
     overflow: hidden; /* Prevent overflow */
+    place-items: center;
 }
 
-.contact-form-container {
+.contact-form-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
     background-color: #fff;
     padding: 20px;
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 100%;
-    position: relative; /* Ensure the suggestion box is positioned relative to the container */
-    transition: transform 0.3s ease; /* Smooth slide effect */
+    width: 50%;
+    height: 80%;
+    transition: transform 0.8s ease, width 0.8s ease;
+    z-index: 10;
+}
+
+.suggestion-box-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 40%;
+    height: 80vh;
+    transition: transform 0.8s ease;
+    z-index: 9;
 }
 
 .contact-form-container h2 {
@@ -663,36 +690,32 @@ button.toggle-details:hover {
     background-color: #45a049;
 }
 
-.suggestion-box {
-    display: none; /* Initially hidden */
-    background-color: #f9f9f9;
-    padding: 20px;
-    border: 1px solid #ccc;
-    border-radius: 8px; /* Rounded corners */
-    position: absolute;
-    top: 0;
-    left: 100%; /* Position right next to the contact form */
-    width: 100%; /* Same width as the contact form */
-    height: 100%; /* Same height as the contact form */
-    box-sizing: border-box;
-    transition: transform 0.3s ease; /* Smooth slide effect */
+.contact-form-wrapper.focused .contact-form-container{
+    transform: translateX(-50%); /* Slide the form to the left */
+    z-index: 3;
+    width: 40%;
+    transition: transform 0.3s ease, width 1.0s ease; /* Add transition for transform and width */
 }
 
-.contact-form-container.focused .suggestion-box {
-    display: block;
-    transform: translateX(0); /* Slide in from the right */
+.contact-form-wrapper.focused .suggestion-box-container {
+    transform: translateX(48%); /* Slide the form to the left by 50% of its width */
+    z-index: 2; /* Bring it in front of other elements */
 }
 
-.contact-form-container.focused {
-    transform: translateX(0); /* No sliding effect for the form */
+.suggestion-box p {
+    margin: 0;
+    border-bottom: 1px solid #ccc;
+    cursor: pointer;
+    transition: background-color 0.3s ease; /* Add transition for smooth animation */
 }
 
 @media (max-width: 768px) {
-    .contact-form-container.focused {
+    .contact-form-container.focused .contact-form-wrapper,
+    .contact-form-container.focused .suggestion-box {
         transform: none; /* Disable sliding effect on mobile */
     }
 
-    .contact-form-container.focused .suggestion-box {
+    .suggestion-box {
         display: none; /* Hide suggestion box on mobile */
     }
 }

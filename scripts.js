@@ -82,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let velocity = 0;
     let lastX;
     let lastTime;
+    const scrollSpeed = 0.5; // Adjust the scroll speed
 
     // Duplicate images for infinite scroll
     carouselImages.innerHTML += carouselImages.innerHTML;
@@ -152,6 +153,16 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(step);
     };
 
+    const continuousScroll = () => {
+        if (!isDragging) {
+            carouselImages.scrollLeft += scrollSpeed;
+        }
+        requestAnimationFrame(continuousScroll);
+    };
+
+    // Start the continuous scrolling
+    continuousScroll();
+
     // Mouse events
     carousel.addEventListener('mousedown', (e) => startDrag(e.pageX));
     carousel.addEventListener('mouseleave', endDrag);
@@ -218,6 +229,32 @@ document.addEventListener('DOMContentLoaded', function() {
                     formContainer.classList.remove('focused');
                 }
             }, 100);
+        });
+    });
+});
+
+// script.js
+document.addEventListener('DOMContentLoaded', () => {
+    const backToTopButton = document.getElementById('back-to-top');
+
+    // Show or hide the button based on scroll position
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 300) { // Show after scrolling down 300px
+            backToTopButton.style.display = 'block';
+            backToTopButton.style.opacity = '1';
+        } else {
+            backToTopButton.style.opacity = '0';
+            setTimeout(() => {
+                backToTopButton.style.display = 'none';
+            }, 300); // Match the transition duration
+        }
+    });
+
+    // Scroll to top when the button is clicked
+    backToTopButton.addEventListener('click', () => {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
         });
     });
 });

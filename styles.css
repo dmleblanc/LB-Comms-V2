@@ -396,6 +396,8 @@ ul li::before {
     }
 }
 
+
+
 /* Ensure the parent container of .specialties-section is centered */
 .parent-container {
     display: flex;
@@ -486,6 +488,17 @@ button.toggle-details:hover {
     background-color: #0056b3;
 }
 
+/* IMAGE CAROUSEL */
+@keyframes scroll {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+
 .carousel {
     overflow: hidden;   /* Hide the scrollbar */
     position: relative;
@@ -500,11 +513,12 @@ button.toggle-details:hover {
     display: flex;
     overflow-x: hidden; /* Disable horizontal scrolling */
     scrollbar-width: none; /* For Firefox */
+
 }
 
 .carousel-images::-webkit-scrollbar {
     display: none; /* For Chrome, Safari, and Opera */
-}
+} 
 
 .carousel-images img {
     max-width: 100%;                /* Set the maximum width */
@@ -512,12 +526,12 @@ button.toggle-details:hover {
     object-fit: cover;            /* Ensure the aspect ratio is maintained */
     flex-shrink: 0;                 /* Prevent shrinking of images */
     border-right: 2px solid #ccc; /* Add a border between images */
-    filter: brightness(0.7);        /* Initial shading effect */
     transition: filter 0.3s ease;   /* Smooth transition for the shading effect */
 }
 
-.carousel-images img:hover {
-    filter: brightness(1);          /* Apply shading effect */
+.carousel-images img:hover,
+.carousel-images img:active {
+    filter: brightness(1.2);          /* Apply shading effect */
 }
 
 .carousel-images img:last-child {
@@ -597,6 +611,7 @@ button.toggle-details:hover {
     border-right: none;
 }
 
+/* CONTACT FORM & SUGGESTION BOX */
 .contact-form-wrapper {
     position: relative; /* Required for absolute positioning */
     display: flex;
@@ -710,13 +725,15 @@ button.toggle-details:hover {
 }
 
 @media (max-width: 768px) {
-    .contact-form-container.focused .contact-form-wrapper,
-    .contact-form-container.focused .suggestion-box {
-        transform: none; /* Disable sliding effect on mobile */
+
+    .contact-form-wrapper * {
+        transition: none !important; /* Disable transition for all child elements */
+        transform: none !important;
+        width: 100% !important;
     }
 
     .suggestion-box {
-        display: none; /* Hide suggestion box on mobile */
+        display: none;      /* Hide suggestion box on mobile */
     }
 }
 
@@ -729,4 +746,27 @@ footer {
     text-align: center;
     padding: 1em;
     background-color: #f8f8f8;
+}
+
+/* BACK TO TOP ARROW */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    line-height: 40px;
+    font-size: 24px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: none; /* Initially hidden */
+    z-index: 1000;
+    transition: opacity 0.3s ease;
+}
+
+.back-to-top:hover {
+    background-color: #555;
 }

@@ -44,3 +44,180 @@ document.addEventListener('DOMContentLoaded', function() {
         }, index * 200); // Delay each item by 300ms
     });
 });
+
+/* Expand Specialties containers */
+document.addEventListener('DOMContentLoaded', function() {
+    const toggleElements = document.querySelectorAll('.toggle-details');
+
+    toggleElements.forEach(element => {
+        element.addEventListener('click', function(event) {
+            event.stopPropagation(); // Prevent the event from bubbling up
+            const specialtyItem = this.closest('.specialty-item');
+            if (!specialtyItem) return; // Ensure specialtyItem exists
+
+            const details = specialtyItem.querySelector('.specialty-details');
+            if (!details) return; // Ensure details exist
+
+            if (specialtyItem.classList.contains('expanded')) {
+                details.style.height = '0';
+                specialtyItem.classList.remove('expanded');
+            } else {
+                details.style.height = details.scrollHeight + 'px';
+                specialtyItem.classList.add('expanded');
+            }
+        });
+    });
+});
+
+document.addEventListener('DOMContentLoaded', () => {
+    const carousel = document.querySelector('.carousel');
+    const carouselImages = document.querySelector('.carousel-images');
+    const images = carouselImages.querySelectorAll('img');
+    let isDragging = false;
+    let startX;
+    let scrollLeft;
+    let isClicking = false;
+    const dragThreshold = 5; // Threshold to differentiate between click and drag
+    let dragDistance = 0;
+    let velocity = 0;
+    let lastX;
+    let lastTime;
+
+    // Duplicate images for infinite scroll
+    carouselImages.innerHTML += carouselImages.innerHTML;
+
+    // Disable default drag behavior on images
+    images.forEach(img => {
+        img.addEventListener('dragstart', (e) => {
+            e.preventDefault();
+        });
+
+        // Add shading effect on mouse enter
+        img.addEventListener('mouseenter', () => {
+            img.style.filter = 'brightness(1)';
+        });
+
+        // Remove shading effect on mouse leave
+        img.addEventListener('mouseleave', () => {
+            img.style.filter = 'brightness(0.7)';
+        });
+    });
+
+    const startDrag = (x) => {
+        isDragging = true;
+        startX = x - carousel.offsetLeft;
+        scrollLeft = carouselImages.scrollLeft;
+        dragDistance = 0;
+        velocity = 0;
+        lastX = x;
+        lastTime = Date.now();
+        carousel.classList.add('active');
+    };
+
+    const endDrag = () => {
+        isDragging = false;
+        if (dragDistance < dragThreshold) {
+            isClicking = true;
+        }
+        setTimeout(() => {
+            isClicking = false;
+        }, 0); // Ensure isClicking is reset after any click event is handled
+        carousel.classList.remove('active');
+        applyInertia();
+    };
+
+    const moveDrag = (x) => {
+        if (!isDragging) return;
+        const now = Date.now();
+        const deltaX = x - lastX;
+        const deltaTime = now - lastTime;
+        velocity = deltaX / deltaTime;
+        lastX = x;
+        lastTime = now;
+
+        const walk = (x - startX) * 3; // Adjust the scroll speed
+        carouselImages.scrollLeft = scrollLeft - walk;
+        dragDistance = Math.abs(x - startX);
+        isClicking = dragDistance < dragThreshold; // If the mouse is moved beyond the threshold, it's not a click
+    };
+
+    const applyInertia = () => {
+        const deceleration = 0.95;
+        const step = () => {
+            if (Math.abs(velocity) < 0.1) return;
+            carouselImages.scrollLeft -= velocity * 20;
+            velocity *= deceleration;
+            requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+    };
+
+    // Mouse events
+    carousel.addEventListener('mousedown', (e) => startDrag(e.pageX));
+    carousel.addEventListener('mouseleave', endDrag);
+    carousel.addEventListener('mouseup', endDrag);
+    carousel.addEventListener('mousemove', (e) => {
+        if (!isDragging) return;
+        e.preventDefault();
+        moveDrag(e.pageX);
+    });
+
+    // Touch events
+    carousel.addEventListener('touchstart', (e) => startDrag(e.touches[0].pageX));
+    carousel.addEventListener('touchend', endDrag);
+    carousel.addEventListener('touchmove', (e) => {
+        if (!isDragging) return;
+        moveDrag(e.touches[0].pageX);
+    });
+
+    // Wheel event for horizontal scrolling
+    carousel.addEventListener('wheel', (e) => {
+        e.preventDefault();
+        if (e.deltaY !== 0) {
+            // Vertical scroll
+            carouselImages.scrollLeft += e.deltaY;
+        } else if (e.deltaX !== 0) {
+            // Horizontal scroll
+            carouselImages.scrollLeft += e.deltaX;
+        }
+    });
+
+    // Example click event handler
+    carousel.addEventListener('click', (e) => {
+        if (isClicking) {
+            console.log('Carousel clicked');
+            // Handle click event here
+        }
+    });
+
+    // Infinite scroll logic
+    carouselImages.addEventListener('scroll', () => {
+        const maxScrollLeft = carouselImages.scrollWidth / 2;
+        if (carouselImages.scrollLeft >= maxScrollLeft) {
+            carouselImages.scrollLeft -= maxScrollLeft;
+        } else if (carouselImages.scrollLeft <= 0) {
+            carouselImages.scrollLeft += maxScrollLeft;
+        }
+    });
+
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    const formContainer = document.querySelector('.contact-form-container');
+    const inputs = formContainer.querySelectorAll('input, textarea');
+
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            formContainer.classList.add('focused');
+        });
+
+        input.addEventListener('blur', () => {
+            // Check if any input is still focused
+            setTimeout(() => {
+                if (!formContainer.querySelector('input:focus, textarea:focus')) {
+                    formContainer.classList.remove('focused');
+                }
+            }, 100);
+        });
+    });
+});

@@ -396,6 +396,307 @@ ul li::before {
     }
 }
 
+/* Ensure the parent container of .specialties-section is centered */
+.parent-container {
+    display: flex;
+    justify-content: center;
+}
+
+/* Center the items within .specialties-section */
+.specialties-section {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 20px;
+    justify-content: center; /* Center the items horizontally */
+}
+
+.specialty-item {
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s;
+    width: 100%;
+    max-width: 400px;
+}
+
+.specialty-item img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.specialty-item:hover {
+    transform: translateY(-10px);
+}
+
+.specialty-content {
+    padding: 20px;
+}
+
+.specialty-left {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+specialty-left h2 {
+    text-align: center;
+}
+
+.title-arrow {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.expand-arrow {
+    cursor: pointer;
+    transition: transform 0.3s;
+    margin-left: 10px;
+    color: #dee3e7;
+}
+
+.specialty-item.expanded .expand-arrow {
+    transform: rotate(180deg);
+}
+
+.specialty-details {
+    height: 0;
+    overflow: hidden;
+    transition: height 0.3s ease;
+}
+
+.specialty-item.expanded .specialty-details {
+    padding-top: 10px;
+}
+
+button.toggle-details {
+    background-color: #007BFF;
+    border: none;
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+button.toggle-details:hover {
+    background-color: #0056b3;
+}
+
+.carousel {
+    overflow: hidden;   /* Hide the scrollbar */
+    position: relative;
+    width: 90%;         /* Adjust the width as needed */
+}
+
+.carousel.active {
+    cursor: grabbing;
+}
+
+.carousel-images {
+    display: flex;
+    overflow-x: hidden; /* Disable horizontal scrolling */
+    scrollbar-width: none; /* For Firefox */
+}
+
+.carousel-images::-webkit-scrollbar {
+    display: none; /* For Chrome, Safari, and Opera */
+}
+
+.carousel-images img {
+    max-width: 100%;                /* Set the maximum width */
+    max-height: 400px;              /* Set the maximum height */
+    object-fit: cover;            /* Ensure the aspect ratio is maintained */
+    flex-shrink: 0;                 /* Prevent shrinking of images */
+    border-right: 2px solid #ccc; /* Add a border between images */
+    filter: brightness(0.7);        /* Initial shading effect */
+    transition: filter 0.3s ease;   /* Smooth transition for the shading effect */
+}
+
+.carousel-images img:hover {
+    filter: brightness(1);          /* Apply shading effect */
+}
+
+.carousel-images img:last-child {
+    border-right: none;
+}
+
+.carousel-text {
+    position: relative;                             /* Ensure the pseudo-element is positioned relative to the text */
+    display: flex;
+    flex-direction: column;                         /* Arrange children in a column */
+    align-items: left;
+    justify-content: center;
+    background-color: var(--bg-color, transparent); /* Use CSS variable for background color, default to transparent */
+    background-image: var(--bg-image, none);        /* Use CSS variable for background image */
+    background-size: cover;                         /* Ensure background image covers the entire div */
+    background-repeat: no-repeat;                   /* Prevent background image from repeating */
+    font-size: 1.5em;
+    font-family: Arial, sans-serif;
+    padding: 5px;
+    box-sizing: border-box;
+    flex-shrink: 0;                                 /* Prevent shrinking of text elements */
+    width: 100%;                                    /* Ensure text elements take full width */
+    max-width: 300px;                               /* Set a maximum width */
+    max-height: 400px;                              /* Match the height of images */
+    border-right: 2px solid #ccc;                   /* Add a border between elements */
+    word-wrap: break-word;                          /* Ensure text wraps properly */
+    color: var(--font-color, white);                /* Use the font color variable */
+    transition: background-color 0.3s ease;         /* Smooth transition for background color */
+}
+
+.carousel-text::before {
+    content: "";
+    position: absolute;                             /* Position the overlay absolutely within the text div */
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);           /* Semi-transparent black overlay */
+    z-index: 1;                                     /* Ensure the overlay is behind the text */
+    opacity: 1;                                     /* Initially hidden */
+    transition: opacity 0.2s ease;                  /* Smooth transition for opacity */
+}
+
+.carousel-text:hover::before,
+.carousel-text:active::before {
+    opacity: .6;                                     /* Show the overlay on hover or tap */
+}
+
+.carousel-text > * {
+    position: relative;                             /* Ensure text is positioned relative to the overlay */
+    z-index: 2;                                     /* Ensure text is above the overlay */
+}
+
+.carousel-heading {
+    font-size: 1.2em;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+}
+
+.carousel-body {
+    font-size: 1em;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+}
+
+.carousel-footer {
+    font-size: 0.8em;
+    margin: 0;
+    padding: 5px;
+    text-align: left;
+    margin-top: auto;               /* Push footer to the bottom */
+}
+
+.carousel-text:last-child {
+    border-right: none;
+}
+
+.contact-form-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+    background-color: #f0f0f0; /* Optional: background color for the wrapper */
+    overflow: hidden; /* Prevent overflow */
+}
+
+.contact-form-container {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    width: 100%;
+    position: relative; /* Ensure the suggestion box is positioned relative to the container */
+    transition: transform 0.3s ease; /* Smooth slide effect */
+}
+
+.contact-form-container h2 {
+    text-align: center; /* Center-align the title */
+    margin-bottom: 20px; /* Add some space below the title */
+}
+
+.contact-form input, .contact-form textarea {
+    padding: 10px;
+    margin-top: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    width: 100%;
+    box-sizing: border-box;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease; /* Add transition for smooth animation */
+}
+
+.contact-form input:focus, .contact-form textarea:focus {
+    border-color: #4CAF50; /* Change border color on focus */
+    box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Add box shadow on focus */
+    outline: none; /* Remove default outline */
+}
+
+.contact-form textarea {
+    resize: vertical;
+    height: 150px;
+}
+
+.contact-form button {
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 16px;
+    width: calc(100% + 20px); /* Full width plus padding */
+    margin-left: -10px; /* Adjust for padding */
+    margin-right: -10px; /* Adjust for padding */
+    box-sizing: border-box;
+    transition: background-color 0.3s ease; /* Add transition for smooth animation */
+}
+
+.contact-form button:hover {
+    background-color: #45a049;
+}
+
+.suggestion-box {
+    display: none; /* Initially hidden */
+    background-color: #f9f9f9;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Rounded corners */
+    position: absolute;
+    top: 0;
+    left: 100%; /* Position right next to the contact form */
+    width: 100%; /* Same width as the contact form */
+    height: 100%; /* Same height as the contact form */
+    box-sizing: border-box;
+    transition: transform 0.3s ease; /* Smooth slide effect */
+}
+
+.contact-form-container.focused .suggestion-box {
+    display: block;
+    transform: translateX(0); /* Slide in from the right */
+}
+
+.contact-form-container.focused {
+    transform: translateX(0); /* No sliding effect for the form */
+}
+
+@media (max-width: 768px) {
+    .contact-form-container.focused {
+        transform: none; /* Disable sliding effect on mobile */
+    }
+
+    .contact-form-container.focused .suggestion-box {
+        display: none; /* Hide suggestion box on mobile */
+    }
+}
+
 main {
     padding-top: 0;
     margin: 0;

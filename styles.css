@@ -19,6 +19,7 @@ header {
     padding: 0 1em;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
     z-index: 1000; /* Ensure header is above the sliding menu */
+    transition: all 0.3s ease; /* Smooth transition */
 }
 
 .header-content {
@@ -37,10 +38,9 @@ header {
 }
 
 .logo-placeholder img {
-    max-height: 3.5vh;
-    height: auto;
-    max-width: 100%;
-    padding-top: .5vh; /* Adjust padding to vertically center the logo */
+    max-height: 5vh; /* Larger logo size */
+    transition: max-height 0.3s ease; /* Smooth transition */
+    padding: 0 1em; /* Add padding around the logo */
 }
 
 .navigation {
@@ -80,6 +80,25 @@ header {
     justify-content: center;
     padding-right: 1em;
     padding-bottom: .75vh; /* Adjust padding to vertically center the hamburger */
+}
+
+header.large {
+    padding: 20px 0; /* Larger padding when at the top */
+}
+
+header.small {
+    padding: 10px 0; /* Smaller padding when scrolled */
+}
+
+header .navigation a button,
+header .slide-menu a button {
+    font-size: 1.2em; /* Larger font size when at the top */
+    transition: font-size 0.3s ease; /* Smooth transition */
+}
+
+header.small .navigation a button,
+header.small .slide-menu a button {
+    font-size: 1em; /* Smaller font size when scrolled */
 }
 
 @media (max-width: 768px) {
@@ -675,7 +694,7 @@ button.toggle-details:hover {
 }
 
 .contact-form input:focus, .contact-form textarea:focus {
-    border-color: #4CAF50; /* Change border color on focus */
+    border-color: #4c8baf; /* Change border color on focus */
     box-shadow: 0 0 5px rgba(76, 175, 80, 0.5); /* Add box shadow on focus */
     outline: none; /* Remove default outline */
 }
@@ -729,7 +748,8 @@ button.toggle-details:hover {
     .contact-form-wrapper * {
         transition: none !important; /* Disable transition for all child elements */
         transform: none !important;
-        width: 100% !important;
+        width: 90% !important;
+        justify-content: center !important;
     }
 
     .suggestion-box {

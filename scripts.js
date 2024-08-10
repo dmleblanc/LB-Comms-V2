@@ -1,4 +1,24 @@
 document.addEventListener('DOMContentLoaded', function() {
+    const header = document.querySelector('header');
+    const navigationButtons = document.querySelectorAll('header .navigation a button, header .slide-menu a button');
+
+    function adjustHeader() {
+        if (window.scrollY === 0) {
+            header.classList.add('large');
+            header.classList.remove('small');
+        } else {
+            header.classList.add('small');
+            header.classList.remove('large');
+        }
+    }
+
+    window.addEventListener('scroll', adjustHeader);
+
+    // Initial check
+    adjustHeader();
+});
+
+document.addEventListener('DOMContentLoaded', function() {
     const hamburgerButtons = document.querySelectorAll('.hamburger');
     const slideMenu = document.querySelector('.slide-menu');
     const swipeDownArrow = document.querySelector('.swipe-down');

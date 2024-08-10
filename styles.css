@@ -350,6 +350,11 @@ ul li::before {
     transform: scale(0); /* Initially scale down */
 }
 
+ul li.visible::before {
+    transform: scale(1); /* Scale up the checkmark */
+    animation: popOut 0.2s ease-out; /* Apply the pop-out animation */
+}
+
 .service h3 {
     font-size: 1.5em; /* Larger font size for headings */
     margin-bottom: 10px; /* Space below heading */
@@ -630,6 +635,26 @@ button.toggle-details:hover {
     border-right: none;
 }
 
+.carousel-arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.left-arrow {
+    left: 10px;
+}
+
+.right-arrow {
+    right: 10px;
+}
+
 /* CONTACT FORM & SUGGESTION BOX */
 .contact-form-wrapper {
     position: relative; /* Required for absolute positioning */
@@ -741,6 +766,25 @@ button.toggle-details:hover {
     border-bottom: 1px solid #ccc;
     cursor: pointer;
     transition: background-color 0.3s ease; /* Add transition for smooth animation */
+}
+
+.suggestion-box ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove default padding */
+}
+
+.suggestion-box ul li {
+    position: relative; /* Position relative for the pseudo-element */
+    padding-left: 25px; /* Add padding to make space for the custom bullet */
+}
+
+.suggestion-box ul li::before {
+    content: '\2022'; /* Unicode for bullet point */
+    position: absolute; /* Position it absolutely */
+    left: 0; /* Align it to the left */
+    color: rgb(63, 63, 66); /* Set the color of the bullet point */
+    font-size: 1.5em; /* Adjust the size of the bullet point */
+    line-height: 1; /* Adjust the line height */
 }
 
 @media (max-width: 768px) {

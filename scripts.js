@@ -103,6 +103,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let lastX;
     let lastTime;
     const scrollSpeed = 0.5; // Adjust the scroll speed
+    const leftArrow = document.querySelector('.left-arrow');
+    const rightArrow = document.querySelector('.right-arrow');
+
 
     // Duplicate images for infinite scroll
     carouselImages.innerHTML += carouselImages.innerHTML;
@@ -231,6 +234,28 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
+    // Arrow button event listeners
+    leftArrow.addEventListener('click', () => {
+        carouselImages.scrollLeft -= 200; // Adjust the value as needed
+    });
+
+    rightArrow.addEventListener('click', () => {
+        carouselImages.scrollLeft += 200; // Adjust the value as needed
+    });
+
+    const formContainer = document.querySelector('.contact-form-wrapper');
+    const inputs = formContainer.querySelectorAll('input, textarea');
+
+    inputs.forEach(input => {
+        input.addEventListener('focus', () => {
+            formContainer.classList.add('focused');
+        });
+
+        input.addEventListener('blur', () => {
+            formContainer.classList.remove('focused');
+        });
+    });
+
 });
 
 document.addEventListener('DOMContentLoaded', function() {
@@ -253,7 +278,6 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 });
 
-// script.js
 document.addEventListener('DOMContentLoaded', () => {
     const backToTopButton = document.getElementById('back-to-top');
 

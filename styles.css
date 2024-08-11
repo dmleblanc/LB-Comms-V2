@@ -39,9 +39,75 @@ main {
 }
 
 footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px 0;
     text-align: center;
-    padding: 1em;
-    background-color: #f8f8f8;
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+.footer-left {
+    flex: 1;
+}
+
+.footer-right {
+    flex: 1;
+    text-align: right;
+}
+
+.footer-links {
+    list-style: none; /* Remove default bullet points */
+    padding: 0; /* Remove default padding */
+    margin: 0; /* Remove default margin */
+}
+
+.footer-links li {
+    display: inline; /* Display list items inline */
+    margin-left: 15px; /* Add spacing between links */
+}
+
+.footer-links li:first-child {
+    margin-left: 0; /* Remove left margin from the first link */
+}
+
+.footer-links a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: #ddd;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .footer-container {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .footer-right {
+        text-align: center;
+        margin-top: 10px;
+    }
+
+    .footer-links li {
+        display: block;
+        margin: 5px 0;
+    }
+
+    .footer ul, li {
+        visibility: visible;
+    }
 }
 
 * {
@@ -66,7 +132,10 @@ footer {
 .logo-placeholder img {
     max-height: 5vh; /* Larger logo size */
     transition: max-height 0.3s ease; /* Smooth transition */
-    padding: 0 1em; /* Add padding around the logo */
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding-left: 1em;
 }
 
 .navigation {
@@ -86,9 +155,13 @@ footer {
     background-color: black;
     color: white;
     border: none;
-    padding: 0.5em 1em;
     margin-left: 0.5em;
     cursor: pointer;
+    height: 3.5vh;
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    font-size: .8em;
 }
 
 .navigation button:hover {
@@ -104,27 +177,37 @@ footer {
     cursor: pointer;
     align-items: center;
     justify-content: center;
-    padding-right: 1em;
+    padding-right: .25em;
     padding-bottom: .75vh; /* Adjust padding to vertically center the hamburger */
 }
 
+header.large img {
+    width: 120px; /* Larger size when at the top */
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+header.small img {
+    width: 100px; /* Smaller size when scrolled */
+    transition: width 0.3s ease;
+}
+
 header.large {
-    padding: 20px 0; /* Larger padding when at the top */
+    padding: 25px 0; /* Larger padding when at the top */
 }
 
 header.small {
-    padding: 10px 0; /* Smaller padding when scrolled */
+    padding: 20px 0; /* Smaller padding when scrolled */
 }
 
 header .navigation a button,
 header .slide-menu a button {
-    font-size: 1.2em; /* Larger font size when at the top */
+    font-size: 1em; /* Larger font size when at the top */
     transition: font-size 0.3s ease; /* Smooth transition */
 }
 
 header.small .navigation a button,
 header.small .slide-menu a button {
-    font-size: 1em; /* Smaller font size when scrolled */
+    font-size: .8em; /* Smaller font size when scrolled */
 }
 
 @media (max-width: 768px) {
@@ -189,6 +272,7 @@ header.small .slide-menu a button {
     position: relative;
     width: 100%;
     height: 100vh;
+    min-height: 500px;
     overflow: visible;
     display: flex;
     align-items: center;
@@ -398,10 +482,6 @@ header.small .slide-menu a button {
     margin: 0 auto 10px; /* Center the image and add bottom margin */
 }
 
-ul {
-    list-style: none; /* Remove default bullet points */
-    padding-left: 0; /* Remove default padding */
-}
 
 @keyframes popOut {
     0% {
@@ -418,29 +498,53 @@ ul {
     }
 }
 
-ul li {
+.parent-container ul li {
+    display: flex; /* Use flexbox for centering */
+    align-items: center; /* Center items vertically */
     position: relative; /* Position relative for the pseudo-element */
-    padding-left: 25px; /* Add padding to make space for the checkmark */
+    padding-left: 5vw; /* Default padding for mobile */
     opacity: 0; /* Initially hidden */
+    text-align: center;
 }
 
-ul li.visible {
+.parent-container ul li.visible {
     opacity: 1; /* Make visible */
     animation: popOut 0.2s ease-out; /* Apply the pop-out animation */
 }
 
-ul li::before {
+
+.parent-container ul li::before {
     content: '\2713'; /* Unicode for checkmark */
     position: absolute; /* Position it absolutely */
     left: 0; /* Align it to the left */
     color: green; /* Set the color of the checkmark */
     font-weight: bold; /* Make the checkmark bold */
     transform: scale(0); /* Initially scale down */
+    transition: transform 0.2s; /* Smooth transition for scaling */
+    padding-left: 10px;
+    text-align: center;
 }
-
-ul li.visible::before {
+.parent-container ul li.visible::before {
     transform: scale(1); /* Scale up the checkmark */
     animation: popOut 0.2s ease-out; /* Apply the pop-out animation */
+}
+
+/* Media query for mobile */
+@media (max-width: 767px) {
+    .parent-container ul li {
+        padding-left: 5vw; /* Adjust padding for mobile */
+        text-align: center; /* Center text for mobile */
+    }
+}
+
+.services-section ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+.footer ul, li {
+    visibility: visible !important;
+    padding-top: 5px;
 }
 
 .service h3 {
@@ -754,17 +858,17 @@ button.toggle-details:hover {
 /* CONTACT FORM & SUGGESTION BOX */
 .contact-form-wrapper {
     position: relative; /* Required for absolute positioning */
-    display: flex;
+    display: inline-flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
     width: 100vw; /* 80% of viewport width */
     background-color: rgb(20, 151, 210); /* Optional: background color for the wrapper */
-    overflow: hidden; /* Prevent overflow */
     place-items: center;
 }
 
 .contact-form-container{
+    display: inline-block;
     position: absolute;
     align-items: center;
     justify-content: center;
@@ -782,6 +886,7 @@ button.toggle-details:hover {
     height: 80%;
     transition: transform 0.8s ease, width 0.8s ease;
     z-index: 10;
+    box-sizing: border-box;
 }
 
 .suggestion-box-container {
@@ -796,10 +901,13 @@ button.toggle-details:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 20%;
-    height: 80vh;
+    width: 50%;
+    height: 75vh;
     transition: transform 0.8s ease;
     z-index: 9;
+    overflow: auto;
+    align-items: center;
+    justify-content: center;
 }
 
 .contact-form-container h2 {
@@ -808,6 +916,8 @@ button.toggle-details:hover {
 }
 
 .contact-form input, .contact-form textarea {
+    justify-content: center;
+    align-items: center;
     padding: 10px;
     margin-top: 10px;
     border: 1px solid #ccc;

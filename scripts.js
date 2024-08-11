@@ -59,9 +59,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const listItems = document.querySelectorAll('ul li');
 
     listItems.forEach((item, index) => {
-        setTimeout(() => {
-            item.classList.add('visible');
-        }, index * 200); // Delay each item by 300ms
+        // Check if the parent is a footer
+        if (!item.closest('footer')) {
+            setTimeout(() => {
+                item.classList.add('visible');
+            }, index * 200); // Delay each item by 200ms
+        }
     });
 });
 

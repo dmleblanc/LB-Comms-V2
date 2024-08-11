@@ -180,16 +180,38 @@ header.small .slide-menu a button {
     z-index: -1;
 }
 
+.welcome-content-wrapper {
+    background-color: rgba(255, 255, 255, 0.5); /* Translucent grey */
+    border-radius: 15px; /* Rounded corners */
+    padding: 20px; /* Optional: Add some padding inside the wrapper */
+    box-shadow: #007BFF 0 0 10px; /* Optional: Add a shadow effect */
+}
+
 .content {
     position: relative;
     z-index: 1;
     text-align: center;
-    color: white;
-    padding: 1em;
+    color: rgb(0, 0, 0);
+}
+
+.emoji {
+    max-height: 1em;
+    font-size: 3em;
+    line-height: 1;
+    display: inline-block;
+    margin: 0;
+    padding: 0;
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+.emoji-container {
+    display: flex;
+    justify-content: center;
 }
 
 @media (max-width: 768px) {
-    .content {
+    .welcome-content {
         padding: 0.5em;
     }
 }
@@ -231,8 +253,7 @@ header.small .slide-menu a button {
 
 .services-section {
     background-color: #f0f0f0; /* Light grey background */
-    padding: 20px; /* Outer padding */
-    margin: 20px 0; /* Margin for spacing between sections */
+    padding: 30px; /* Outer padding */
     display: flex; /* Enable Flexbox */
     flex-wrap: wrap; /* Allow wrapping to the next line */
     gap: 20px; /* Space between flex items */
@@ -433,6 +454,7 @@ ul li.visible::before {
 .parent-container {
     display: flex;
     justify-content: center;
+    background-color: #9dadbe;
 }
 
 /* Center the items within .specialties-section */
@@ -458,6 +480,7 @@ ul li.visible::before {
     display: block;
     margin-left: auto;
     margin-right: auto;
+    padding: 10px;
 }
 
 .specialty-item:hover {
@@ -859,9 +882,20 @@ footer {
     animation: fadeIn 1s ease-in-out; /* Fade-in animation */
 }
 
+.heading-container {
+    display: flex;
+    gap: 20px; /* Adjust the spacing between the headings */
+    justify-content: center; /* Center the headings horizontally */
+    width: 100%; /* Ensure the container takes full width */
+    padding: 5px; /* Add padding to prevent overlap */
+}
+
+
 .company-info h2 {
-    color: #333; /* Darker text color for the heading */
-    font-size: 1.8em; /* Larger font size for the heading */
+    margin: 0; /* Remove default margin */
+    padding: 3px; /* Optional: Add padding for better appearance */
+    background-color: #f9f9f9; /* Optional: Add background color */
+
 }
 
 /* Keyframes for fade-in animation */

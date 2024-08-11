@@ -299,7 +299,7 @@ header.small .slide-menu a button {
 }
 
 .services-section {
-    background-color: #f0f0f0; /* Light grey background */
+    background-color: #f9f9f9; /* Light grey background */
     padding: 30px; /* Outer padding */
     display: flex; /* Enable Flexbox */
     flex-wrap: wrap; /* Allow wrapping to the next line */
@@ -746,6 +746,8 @@ button.toggle-details:hover {
 
 .contact-form-container{
     position: absolute;
+    align-items: center;
+    justify-content: center;
     top: 0;
     left: 0;
     right: 0;
@@ -934,6 +936,7 @@ footer {
     justify-content: center; /* Center the headings horizontally */
     align-items: center; /* Center the headings vertically */
     flex-direction: column;
+    flex: 1;
 }
 
 .company-info-shorttext {
@@ -963,8 +966,25 @@ footer {
     display: flex;
     justify-content: center;
     align-items: center;
+    flex: 1;
 }
 
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .company-info {
+        flex-direction: column; /* Stack text above image on mobile */
+        align-items: center; /* Center align items */
+    }
+
+    .heading-container, .company-info-image {
+        width: 100%; /* Full width on mobile */
+    }
+
+    .company-info-image img {
+        width: 100%; /* Ensure the image takes full width */
+        height: auto; /* Maintain aspect ratio */
+    }
+}
 
 .company-info h2 {
     margin: 0; /* Remove default margin */
@@ -1089,10 +1109,11 @@ footer {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    flex: 1;
 }
 
 .video-placeholder {
-    width: 75vw; /* 75% of the viewport width */
+    width: 100%; /* 75% of the viewport width */
     margin: 20px auto; /* Center horizontally and add margin */
     display: flex;
     justify-content: center; /* Center the video horizontally */
@@ -1102,10 +1123,23 @@ footer {
     border-radius: 8px; /* Rounded corners */
     padding: 10px; /* Padding inside the div */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    flex: 1;
 }
 
 .video-placeholder video {
     width: 100%; /* Make the video take up the full width of the container */
     height: auto; /* Maintain aspect ratio */
     border-radius: 8px; /* Rounded corners for the video */
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+    .training-section {
+        flex-direction: column; /* Stack text above video on mobile */
+        align-items: center; /* Center align items */
+    }
+
+    .training-section-text, .video-placeholder {
+        width: 100%; /* Full width on mobile */
+    }
 }

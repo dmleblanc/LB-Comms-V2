@@ -163,7 +163,7 @@ header.small .slide-menu a button {
     position: relative;
     width: 100%;
     height: 100vh;
-    overflow: hidden;
+    overflow: visible;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -185,6 +185,7 @@ header.small .slide-menu a button {
     border-radius: 15px; /* Rounded corners */
     padding: 20px; /* Optional: Add some padding inside the wrapper */
     box-shadow: #007BFF 0 0 10px; /* Optional: Add a shadow effect */
+    overflow: visible;
 }
 
 .content {
@@ -192,6 +193,7 @@ header.small .slide-menu a button {
     z-index: 1;
     text-align: center;
     color: rgb(0, 0, 0);
+    visibility: visible;
 }
 
 .emoji {
@@ -203,11 +205,50 @@ header.small .slide-menu a button {
     padding: 0;
     padding-left: 10%;
     padding-right: 10%;
+    transition: transform 0.3s ease;
+}
+
+.emoji:hover,
+.emoji:focus,
+.emoji:active {
+    transform: scale(1.2);
 }
 
 .emoji-container {
     display: flex;
     justify-content: center;
+    overflow: visible !important;
+}
+
+.emoji-wrapper {
+    position: relative;
+    display: inline-block;
+    padding-left: 10px;
+    padding-right: 10px;
+    overflow: visible;
+}
+
+.tooltip {
+    visibility: hidden;
+    width: 120px; /* Adjust the width as needed */
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    position: absolute;
+    z-index: 1;
+    top: 125%; /* Position the tooltip above the emoji */
+    left: 50%;
+    margin-left: -60px; /* Center the tooltip */
+    opacity: 1;
+    transition: opacity 0.3s;
+}
+
+.emoji-wrapper:hover .tooltip,
+.emoji-wrapper:active .tooltip {
+    visibility: visible;
+    opacity: 1;
+    bottom: 100%; /* Move the tooltip slightly up */
 }
 
 @media (max-width: 768px) {

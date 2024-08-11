@@ -370,6 +370,7 @@ ul li.visible::before {
     transform: translateY(0);
 }
 
+/* ABOUT SECTION */
 .about-section {
     position: relative;
     padding: 50px 20px;
@@ -378,6 +379,12 @@ ul li.visible::before {
     overflow: hidden; /* Ensure content stays within the section */
 }
 
+.about-section img {
+    max-width: 60vw;
+    height: auto;
+    display: block;
+    margin: 0 auto;
+}
 .background-video {
     position: absolute;
     top: 50%;
@@ -537,7 +544,6 @@ button.toggle-details:hover {
     display: flex;
     overflow-x: hidden; /* Disable horizontal scrolling */
     scrollbar-width: none; /* For Firefox */
-
 }
 
 .carousel-images::-webkit-scrollbar {
@@ -662,7 +668,8 @@ button.toggle-details:hover {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
-    background-color: #f0f0f0; /* Optional: background color for the wrapper */
+    width: 100vw; /* 80% of viewport width */
+    background-color: rgb(20, 151, 210); /* Optional: background color for the wrapper */
     overflow: hidden; /* Prevent overflow */
     place-items: center;
 }
@@ -679,7 +686,7 @@ button.toggle-details:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 50%;
+    width: 80vw;
     height: 80%;
     transition: transform 0.8s ease, width 0.8s ease;
     z-index: 10;
@@ -697,7 +704,7 @@ button.toggle-details:hover {
     border-radius: 8px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
-    width: 40%;
+    width: 20%;
     height: 80vh;
     transition: transform 0.8s ease;
     z-index: 9;
@@ -833,4 +840,129 @@ footer {
 
 .back-to-top:hover {
     background-color: #555;
+}
+
+/* COMPANY INFO */
+.company-info {
+    max-width: 800px;
+    width: 80vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f9f9f9; /* Light background color */
+    border: 1px solid #ddd; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 20px; /* Padding inside the div */
+    margin: 20px auto; /* Margin around the div */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+    text-align: center; /* Center-align text */
+    animation: fadeIn 1s ease-in-out; /* Fade-in animation */
+}
+
+.company-info h2 {
+    color: #333; /* Darker text color for the heading */
+    font-size: 1.8em; /* Larger font size for the heading */
+}
+
+/* Keyframes for fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+/* ARTICLES  */
+.publications-section {
+    padding: 20px;
+    background-color: rgb(22, 57, 98);
+}
+
+.publications-section h2 {
+    text-align: left;
+    margin-bottom: 10px;
+    margin-left:10px;
+    font-size: 2em;
+    color: #fff;
+}
+
+.articles-container {
+    display: flex;
+    overflow-x: auto;
+    padding: 10px;
+    gap: 20px; /* Space between articles */
+}
+
+.article-link-wrapper {
+    text-decoration: none; /* Remove underline from the link */
+    color: inherit; /* Inherit text color */
+}
+
+.article {
+    flex: 0 0 auto; /* Prevent articles from shrinking */
+    width: 300px; /* Adjust width as needed */
+    padding: 10px;
+    border: 1px solid #ddd;
+    background-color: #fff;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 8px; /* Optional: rounded corners */
+    transition: transform 0.2s; /* Optional: add a hover effect */
+}
+
+.article:hover {
+    transform: scale(1.05); /* Optional: add a hover effect */
+}
+
+.article-image {
+    width: 100%;
+    height: auto;
+    margin-bottom: 3px;
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    border-radius: 8px; /* Optional: rounded corners */
+}
+
+.article-title {
+    font-size: 1.2em;
+    margin: 0 0 5px;
+    text-align: center;
+}
+
+.article-author,
+.article-date {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0 0 5px;
+    text-align: center;
+}
+
+.article-link {
+    display: inline-block;
+    margin-top: 5px;
+    color: #007bff;
+    text-decoration: none;
+}
+
+.article-link:hover {
+    text-decoration: underline;
+}
+
+.article h3 {
+    font-size: 0.9em;
+    color: #666;
+    margin: 0;
+    text-align: center;
+}
+
+.article h2 {
+    font-size: 0.8em;
+    color: #666;
+    margin: 0;
+    text-align: center;
+    padding-bottom: 5px;
+    font-style: italic;
 }

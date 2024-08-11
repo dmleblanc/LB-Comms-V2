@@ -178,6 +178,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const continuousScroll = () => {
         if (!isDragging) {
+            console.log("Continuous Scrolling Started!")
             carouselImages.scrollLeft += scrollSpeed;
         }
         requestAnimationFrame(continuousScroll);

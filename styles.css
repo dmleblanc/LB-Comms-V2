@@ -909,10 +909,10 @@ footer {
 /* COMPANY INFO */
 .company-info {
     max-width: 800px;
-    width: 80vw;
+    width: 90vw;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items:center;
     background-color: #f9f9f9; /* Light background color */
     border: 1px solid #ddd; /* Light border */
     border-radius: 8px; /* Rounded corners */
@@ -925,10 +925,38 @@ footer {
 
 .heading-container {
     display: flex;
-    gap: 20px; /* Adjust the spacing between the headings */
     justify-content: center; /* Center the headings horizontally */
-    width: 100%; /* Ensure the container takes full width */
-    padding: 5px; /* Add padding to prevent overlap */
+    align-items: center; /* Center the headings vertically */
+    flex-direction: column;
+}
+
+.company-info-shorttext {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    padding: 10px;
+    justify-content: center;
+    align-items: center;
+}
+
+.company-info-longtext p {
+    width: 100%;
+    max-width: 600px;
+    height: 100%;
+    text-align: left;
+    padding: 5px;
+    margin: 0;
+}
+
+.company-info-image {
+    width: 100%;
+    max-width: 300px;
+    height: auto;
+    margin: 10px;
+    border-radius: 8px; /* Rounded corners */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 
@@ -1040,4 +1068,38 @@ footer {
     text-align: center;
     padding-bottom: 5px;
     font-style: italic;
+}
+
+.training-section {
+    padding: 20px;
+    background-color: #f9f9f9;
+    display: flex;
+}
+
+.training-section-text {
+    width: 30vw;
+    display: flex;
+    padding: 40px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.video-placeholder {
+    width: 75vw; /* 75% of the viewport width */
+    margin: 20px auto; /* Center horizontally and add margin */
+    display: flex;
+    justify-content: center; /* Center the video horizontally */
+    align-items: center; /* Center the video vertically */
+    background-color: #f0f0f0; /* Light background color */
+    border: 1px solid #ccc; /* Light border */
+    border-radius: 8px; /* Rounded corners */
+    padding: 10px; /* Padding inside the div */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+.video-placeholder video {
+    width: 100%; /* Make the video take up the full width of the container */
+    height: auto; /* Maintain aspect ratio */
+    border-radius: 8px; /* Rounded corners for the video */
 }

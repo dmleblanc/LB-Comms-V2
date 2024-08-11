@@ -176,10 +176,17 @@ document.addEventListener('DOMContentLoaded', () => {
         requestAnimationFrame(step);
     };
 
+    let hasLogged = false;
+
     const continuousScroll = () => {
         if (!isDragging) {
-            console.log("Continuous Scrolling Started!")
+            if (!hasLogged) {
+                console.log("Continuous Scrolling Started!");
+                hasLogged = true;
+            }
             carouselImages.scrollLeft += scrollSpeed;
+        } else {
+            hasLogged = false;
         }
         requestAnimationFrame(continuousScroll);
     };

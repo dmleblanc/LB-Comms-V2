@@ -290,10 +290,32 @@ header.small .slide-menu a button {
     z-index: -1;
 }
 
+.welcome-wrapper {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+}
+
+.welcome-logo-wrapper {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.welcome-logo-wrapper img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 35px;
+}
+
 .welcome-content-wrapper {
-    background-color: rgba(255, 255, 255, 0.5); /* Translucent grey */
+    background-color: rgba(255, 255, 255, 0.8); /* Translucent grey */
     border-radius: 15px; /* Rounded corners */
-    padding: 20px; /* Optional: Add some padding inside the wrapper */
+    padding: 10px; /* Optional: Add some padding inside the wrapper */
     box-shadow: #007BFF 0 0 10px; /* Optional: Add a shadow effect */
     overflow: visible;
 }
@@ -311,10 +333,8 @@ header.small .slide-menu a button {
     font-size: 3em;
     line-height: 1;
     display: inline-block;
-    margin: 0;
+    margin: 0 10px;
     padding: 0;
-    padding-left: 10%;
-    padding-right: 10%;
     transition: transform 0.3s ease;
 }
 

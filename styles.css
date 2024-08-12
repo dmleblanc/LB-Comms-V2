@@ -876,12 +876,13 @@ button.toggle-details:hover {
 }
 
 /* CONTACT FORM & SUGGESTION BOX */
-.contact-form-wrapper {
+.form-wrapper {
     position: relative; /* Required for absolute positioning */
     display: inline-flex;
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
+    max-height: 600px; /* Maximum height */
     width: 100vw; /* 80% of viewport width */
     background-color: rgb(20, 151, 210); /* Optional: background color for the wrapper */
     place-items: center;
@@ -990,6 +991,10 @@ button.toggle-details:hover {
     z-index: 2; /* Bring it in front of other elements */
 }
 
+.suggestion-box {
+    height: 50vh;
+}
+
 .suggestion-box p {
     margin: 0;
     border-bottom: 1px solid #ccc;
@@ -1016,18 +1021,35 @@ button.toggle-details:hover {
     line-height: 1; /* Adjust the line height */
 }
 
+/* HIDE SUGGESTION BOX & DISABLE ANIMATIONS ON MOBILE */
 @media (max-width: 768px) {
 
     .contact-form-wrapper * {
         transition: none !important; /* Disable transition for all child elements */
         transform: none !important;
-        width: 90% !important;
         justify-content: center !important;
     }
 
-    .suggestion-box {
-        display: none;      /* Hide suggestion box on mobile */
+    .contact-form-container{
+        transition: none;
     }
+
+    .contact-form-wrapper.focused .contact-form-container{
+        transform: none; /* Slide the form to the left */
+        transition: none; /* Add transition for transform and width */
+        width: 80vw;
+    }
+
+    .contact-form-wrapper.focused .suggestion-box-container {
+        transform: none; /* Slide the form to the left by 50% of its width */
+        z-index: 2; /* Bring it in front of other elements */
+    }
+
+    .suggestion-box-container, .suggestion-box {
+        display: none;      /* Hide suggestion box on mobile */
+        visibility: hidden;
+    }
+
 }
 
 
@@ -1236,19 +1258,29 @@ button.toggle-details:hover {
 }
 
 .training-section {
-    padding: 20px;
+    padding: 40px;
     background-color: #f9f9f9;
     display: flex;
+    justify-content: space-around; /* Distribute space evenly */
+    align-items: center; /* Center align items vertically */
 }
 
-.training-section-text {
-    width: 30vw;
+.training-section-text-container {
     display: flex;
-    padding: 40px;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    flex: 1;
+    width: 50%;
+    min-width: 300px;
+}
+
+.training-section-text {
+    width: 100%; /* Adjust width to ensure space between elements */
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .training-section-text h1 {
@@ -1256,7 +1288,7 @@ button.toggle-details:hover {
 }
 
 .video-placeholder { 
-    width: 100%; /* 75% of the viewport width */
+    width: 45%;
     margin: 20px auto; /* Center horizontally and add margin */
     display: flex;
     justify-content: center; /* Center the video horizontally */
@@ -1266,7 +1298,6 @@ button.toggle-details:hover {
     border-radius: 8px; /* Rounded corners */
     padding: 10px; /* Padding inside the div */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
-    flex: 1;
 }
 
 .video-placeholder video {

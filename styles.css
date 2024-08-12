@@ -1146,7 +1146,7 @@ button.toggle-details:hover {
 /* ARTICLES  */
 .publications-section {
     padding: 20px;
-    background-color: rgb(22, 57, 98);
+    background-color: #163962;
 }
 
 .publications-section h2 {
@@ -1251,7 +1251,11 @@ button.toggle-details:hover {
     flex: 1;
 }
 
-.video-placeholder {
+.training-section-text h1 {
+    border-bottom: 2px solid #707070;
+}
+
+.video-placeholder { 
     width: 100%; /* 75% of the viewport width */
     margin: 20px auto; /* Center horizontally and add margin */
     display: flex;

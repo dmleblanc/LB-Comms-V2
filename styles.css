@@ -1321,8 +1321,37 @@ button.toggle-details:hover {
 /* ABOUT PAGE */
 .tableauPlaceholder {
     position: relative;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    width: 100%;
+    height:100%;
 }
 
 .tableauViz {
     display: none;
+}
+
+/* RE-USABLE ELEMENTS */
+.main-container {
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    padding-top: 20px;
+    background-color: #163962;
+}
+
+.sub-main-container {
+    background-color: #f9f9f9;
+    width: 80vw;
+    height: 100%;
+    padding-top: 20px;
+}
+
+.body-paragraph {
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-left: 20vw;
+    margin-right: 20vw;
+    margin-top: 20px;
 }

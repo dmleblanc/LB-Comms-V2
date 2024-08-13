@@ -1317,3 +1317,12 @@ button.toggle-details:hover {
         width: 100%; /* Full width on mobile */
     }
 }
+
+/* ABOUT PAGE */
+.tableauPlaceholder {
+    position: relative;
+}
+
+.tableauViz {
+    display: none;
+}

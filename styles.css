@@ -1,4 +1,12 @@
-/* HEADINGS */
+/* VARIABLES */
+:root {
+    --header-height: 5vh; /* Height of the header */
+}
+/*  */
+
+/* USED IN ALL PAGES */
+
+/* USED IN ALL PAGES - HEADINGS */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Goldman', sans-serif;
     font-weight: normal;
@@ -7,7 +15,7 @@ h1, h2, h3, h4, h5, h6 {
     text-align: center;
 }
 
-/* styles.css */
+/* USED IN ALL PAGES - body */
 body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -16,11 +24,25 @@ body {
     overflow-x: hidden; /* Prevent horizontal scroll */
 }
 
+/* USED IN ALL PAGES - main */
+main {
+    margin-top: var(--header-height); /* Ensure content is below the header */
+    padding-top: 0;
+    margin: 0;
+    max-width: 100%;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+    overflow-y: hidden; /* Suppress unnecessary vertical scroll */
+}
+/*  */
+
+/* USED IN ALL PAGES - header */
+
+/* ALWAYS MOBILE FIRST! */
 header {
     position: fixed;
     top: 0;
     width: 100%;
-    height: 5vh;
+    height: var(--header-height); /* Use the header height variable */
     background-color: black;
     display: flex;
     align-items: center;
@@ -31,13 +53,206 @@ header {
     transition: all 0.3s ease; /* Smooth transition */
 }
 
-main {
-    padding-top: 0;
-    margin: 0;
-    max-width: 100%;
-    overflow-x: hidden; /* Prevent horizontal scroll */
+.header-content {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    justify-content: space-between;
 }
 
+.logo-placeholder {
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Center the logo horizontally */
+    height: 100%; /* Ensure it takes the full height of the navigation bar */
+    padding: 0; /* Remove padding */
+}
+
+.logo-placeholder img {
+    height: 100%; /* Ensure the logo takes the full height of the navigation bar */
+    max-height: var(--header-height); /* Larger logo size */
+    max-width: 250px;
+    transition: max-height 0.3s ease; /* Smooth transition */
+    align-content: center;
+    justify-content: center;
+    display: flex;
+    padding-left: 1em;
+}
+
+.navigation {
+    display: none;          /* HIDDEN BY DEFAULT */
+    align-items: center;
+    justify-content: center;
+    margin-left: auto;
+    padding-right: 1em;
+}
+
+.navigation a {
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em; 
+}
+
+.navigation button {
+    background-color: black;
+    color: white;
+    border: none;
+    margin-left: 0.5em;
+    cursor: pointer;
+    height: 3.5vh;
+    align-content: center;
+    justify-content: center;
+    display: flexbox;
+    font-size: .8em;
+}
+
+.navigation button:hover {
+    background-color: #333;
+}
+
+.hamburger {
+    display: block; /* Show hamburger by default (mobile-first) */
+    font-size: 2em;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    align-items: center;
+    justify-content: center;
+    padding-right: .25em;
+    padding-bottom: .75vh; /* Adjust padding to vertically center the hamburger */
+}
+
+header.large img {
+    height: auto;
+    width: 100%; /* Larger size when at the top */
+    max-width: 250px;
+    transition: width 0.3s ease; /* Smooth transition */
+}
+
+header.small img {
+    height: auto;
+    width: 100%; /* Smaller size when scrolled */
+    max-width: 250px;
+    transition: width 0.3s ease;
+}
+
+header.large {
+    padding: 25px 0; /* Larger padding when at the top */
+}
+
+header.small {
+    padding: 20px 0; /* Smaller padding when scrolled */
+}
+
+header .navigation a button,
+header .slide-menu a button {
+    font-size: 1em; /* Larger font size when at the top */
+    transition: font-size 0.3s ease; /* Smooth transition */
+}
+
+header.small .navigation a button,
+header.small .slide-menu a button {
+    font-size: .8em; /* Smaller font size when scrolled */
+}
+
+.slide-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background-color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    transition: right 0.3s ease;
+    z-index: 999; /* Ensure the sliding menu is above other content */
+    padding-top: 5vh; /* Adjust padding to avoid overlap with header */
+}
+
+.slide-menu.active {
+    right: 0;
+}
+
+.slide-menu .hamburger {
+    position: absolute;
+    top: .5em;
+    right: 1em;
+}
+
+.slide-menu a {
+    text-decoration: none;
+    color: white;
+    padding: 0.5em 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.slide-menu button {
+    background-color: black;
+    color: white;
+    border: none;
+    padding: 0.5em 1em;
+    margin: 0.2em 0; /* Reduce margin to decrease space between buttons */
+    cursor: pointer;
+    width: 100%;
+}
+
+.slide-menu button:hover {
+    background-color: #333;
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .navigation {
+        display: flex; /* Show navigation for tablets */
+    }
+
+    .hamburger {
+        display: none; /* Hide hamburger for tablets */
+    }
+
+    header.small img {
+        width: 20vw; /* Adjust size for tablets */
+    }
+}
+
+/* Laptops */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .navigation {
+        display: flex; /* Show navigation for laptops */
+    }
+
+    .hamburger {
+        display: none; /* Hide hamburger for laptops */
+    }
+
+    header.small img {
+        width: 18vw; /* Adjust size for laptops */
+    }
+}
+
+/* Desktops */
+@media (min-width: 1200px) {
+    .navigation {
+        display: flex; /* Show navigation for desktops */
+    }
+
+    .hamburger {
+        display: none; /* Hide hamburger for desktops */
+    }
+
+    header.small img {
+        width: 15vw; /* Adjust size for desktops */
+    }
+}
+/*  */
+
+/* USED IN ALL PAGES - footer */
 footer {
     background-color: #333;
     color: #fff;
@@ -110,170 +325,26 @@ footer {
     }
 }
 
+.footer ul, li {
+    visibility: visible !important;
+    padding-top: 5px;
+}
+
 * {
     box-sizing: border-box;
 }
+/*  */
 
-.header-content {
-    display: flex;
-    align-items: center;
-    width: 100%;
-    justify-content: space-between;
-}
+/* USED IN ALL PAGES - END */
 
-.logo-placeholder {
-    display: flex;
-    align-items: center;
-    justify-content: center; /* Center the logo horizontally */
-    height: 100%; /* Ensure it takes the full height of the navigation bar */
-    padding: 0; /* Remove padding */
-}
-
-.logo-placeholder img {
-    max-height: 5vh; /* Larger logo size */
-    transition: max-height 0.3s ease; /* Smooth transition */
-    align-content: center;
-    justify-content: center;
-    display: flex;
-    padding-left: 1em;
-}
-
-.navigation {
-    display: flex;
-    align-items: center;
-    margin-left: auto;
-    padding-right: 1em;
-}
-
-.navigation a {
-    text-decoration: none;
-    color: white;
-    padding: 0.5em 1em;
-}
-
-.navigation button {
-    background-color: black;
-    color: white;
-    border: none;
-    margin-left: 0.5em;
-    cursor: pointer;
-    height: 3.5vh;
-    align-content: center;
-    justify-content: center;
-    display: flex;
-    font-size: .8em;
-}
-
-.navigation button:hover {
-    background-color: #333;
-}
-
-.hamburger {
-    display: none;
-    font-size: 2em;
-    background: none;
-    border: none;
-    color: white;
-    cursor: pointer;
-    align-items: center;
-    justify-content: center;
-    padding-right: .25em;
-    padding-bottom: .75vh; /* Adjust padding to vertically center the hamburger */
-}
-
-header.large img {
-    width: 120px; /* Larger size when at the top */
-    transition: width 0.3s ease; /* Smooth transition */
-}
-
-header.small img {
-    width: 100px; /* Smaller size when scrolled */
-    transition: width 0.3s ease;
-}
-
-header.large {
-    padding: 25px 0; /* Larger padding when at the top */
-}
-
-header.small {
-    padding: 20px 0; /* Smaller padding when scrolled */
-}
-
-header .navigation a button,
-header .slide-menu a button {
-    font-size: 1em; /* Larger font size when at the top */
-    transition: font-size 0.3s ease; /* Smooth transition */
-}
-
-header.small .navigation a button,
-header.small .slide-menu a button {
-    font-size: .8em; /* Smaller font size when scrolled */
-}
-
-@media (max-width: 768px) {
-    .navigation {
-        display: none;
-    }
-
-    .hamburger {
-        display: block;
-    }
-
-    .slide-menu {
-        position: fixed;
-        top: 0;
-        right: -100%;
-        width: 250px;
-        height: 100%;
-        background-color: black;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: flex-start;
-        transition: right 0.3s ease;
-        z-index: 999; /* Ensure the sliding menu is above other content */
-        padding-top: 5vh; /* Adjust padding to avoid overlap with header */
-    }
-
-    .slide-menu.active {
-        right: 0;
-    }
-
-    .slide-menu .hamburger {
-        position: absolute;
-        top: .5em;
-        right: 1em;
-    }
-
-    .slide-menu a {
-        text-decoration: none;
-        color: white;
-        padding: 0.5em 1em;
-        width: 100%;
-        text-align: center;
-    }
-
-    .slide-menu button {
-        background-color: black;
-        color: white;
-        border: none;
-        padding: 0.5em 1em;
-        margin: 0.2em 0; /* Reduce margin to decrease space between buttons */
-        cursor: pointer;
-        width: 100%;
-    }
-
-    .slide-menu button:hover {
-        background-color: #333;
-    }
-}
-
+/* NEW PAGE -- index.html */
 .welcome-media {
+    margin-top: var(--header-height);
     position: relative;
     width: 100%;
-    height: 100vh;
+    height: 95vh;
     min-height: 500px;
-    overflow: visible;
+    overflow: hidden;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -318,12 +389,17 @@ header.small .slide-menu a button {
     padding: 10px; /* Optional: Add some padding inside the wrapper */
     box-shadow: #007BFF 0 0 10px; /* Optional: Add a shadow effect */
     overflow: visible;
+    max-width: 70vw;
+    align-items: center;
+    justify-content: center;
 }
 
 .content {
     position: relative;
     z-index: 1;
     text-align: center;
+    align-items: center;
+    justify-content: center;
     color: rgb(0, 0, 0);
     visibility: visible;
 }
@@ -348,6 +424,9 @@ header.small .slide-menu a button {
     display: flex;
     justify-content: center;
     overflow: visible !important;
+    padding-left: 10px;
+    padding-right: 10px;
+
 }
 
 .emoji-wrapper {
@@ -356,6 +435,7 @@ header.small .slide-menu a button {
     padding-left: 10px;
     padding-right: 10px;
     overflow: visible;
+    max-width: 60vw;
 }
 
 .tooltip {
@@ -519,10 +599,12 @@ header.small .slide-menu a button {
 }
 
 .parent-container ul li {
+    list-style-position: outside;
     display: flex; /* Use flexbox for centering */
     align-items: center; /* Center items vertically */
     position: relative; /* Position relative for the pseudo-element */
-    padding-left: 5vw; /* Default padding for mobile */
+    padding-left: 20px; /* Default padding for mobile */
+    /*padding-right: 5vw; /* Default padding for mobile */
     opacity: 0; /* Initially hidden */
     text-align: center;
 }
@@ -541,30 +623,27 @@ header.small .slide-menu a button {
     font-weight: bold; /* Make the checkmark bold */
     transform: scale(0); /* Initially scale down */
     transition: transform 0.2s; /* Smooth transition for scaling */
-    padding-left: 10px;
+    /* padding-left: 10px; */
     text-align: center;
+    justify-self: center;
 }
 .parent-container ul li.visible::before {
     transform: scale(1); /* Scale up the checkmark */
     animation: popOut 0.2s ease-out; /* Apply the pop-out animation */
+    padding-right: 10px;
 }
 
 /* Media query for mobile */
 @media (max-width: 767px) {
     .parent-container ul li {
         padding-left: 5vw; /* Adjust padding for mobile */
-        text-align: center; /* Center text for mobile */
+        text-align: left; /* Center text for mobile */
     }
 }
 
 .services-section ul {
     list-style-type: none;
     padding-left: 0;
-}
-
-.footer ul, li {
-    visibility: visible !important;
-    padding-top: 5px;
 }
 
 .service h3 {
@@ -680,6 +759,7 @@ header.small .slide-menu a button {
 
 .specialty-content {
     padding: 20px;
+    display: flex;
 }
 
 .specialty-left {
@@ -688,8 +768,14 @@ header.small .slide-menu a button {
     gap: 10px;
 }
 
-specialty-left h2 {
+
+
+.specialty-left h2 {
     text-align: center;
+}
+
+.specialty-left ul {
+    justify-self: center;
 }
 
 .title-arrow {
@@ -923,7 +1009,7 @@ button.toggle-details:hover {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     max-width: 600px;
     width: 50%;
-    height: 75vh;
+    height: 80%;
     transition: transform 0.8s ease;
     z-index: 9;
     overflow: auto;
@@ -1231,7 +1317,7 @@ button.toggle-details:hover {
 }
 
 .article-link {
-    display: inline-block;
+    display: flex;
     margin-top: 5px;
     color: #007bff;
     text-decoration: none;
@@ -1243,7 +1329,11 @@ button.toggle-details:hover {
 
 .article h3 {
     font-size: 0.9em;
-    color: #666;
+    min-height: 3em; /* Adjust the height as needed to accommodate two lines of text */
+    display: flex;
+    align-items: center; /* Vertically center the text */
+    justify-content: center; /* Horizontally center the text */
+    color: #000000;
     margin: 0;
     text-align: center;
 }
@@ -1338,20 +1428,363 @@ button.toggle-details:hover {
     align-items: center;
     display: flex;
     padding-top: 20px;
-    background-color: #163962;
-}
-
-.sub-main-container {
     background-color: #f9f9f9;
-    width: 80vw;
-    height: 100%;
-    padding-top: 20px;
+    color: #ffffff;
 }
 
-.body-paragraph {
+.main-container__hero {
+    /* background-color: #c8c8c8; */
+    width: 100vw;
+    height: 100%;
+    max-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 0px;
+    padding: 20px;
+    color: #000000;
+}
+
+.main-container__hero img {
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+.main-container__sub {
+    background-color: #163962;
+    width: 80vw;
+    height: 90vh;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    flex-direction: row;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+}
+
+.main-container__paragraph {
     font-size: 1.2em;
     line-height: 1.6;
     margin-left: 20vw;
     margin-right: 20vw;
     margin-top: 20px;
+}
+
+.main-container__content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.main-container__content img {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin: 20px;
+}
+
+/* Media queries for different screen sizes */
+
+/* Mobile devices (portrait and landscape) */
+@media (max-width: 767px) {
+    .main-container {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .main-container__sub {
+        width: 100vw;
+        padding-top: 30px;
+    }
+
+    .main-container__paragraph {
+        font-size: 1em;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .main-container__content {
+        padding: 10px;
+        width: 90vw;
+    }
+}
+
+/* Tablets (portrait and landscape) */
+@media (min-width: 768px) and (max-width: 1023px) {
+    .main-container {
+        flex-direction: column;
+        padding-top: 15px;
+    }
+
+    .main-container__sub {
+        width: 85vw;
+        padding-top: 15px;
+    }
+
+    .main-container__paragraph {
+        font-size: 1.1em;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .main-container__content {
+        padding: 40px;
+        width: 60vw;
+        flex-direction: row;
+    }
+}
+
+/* Laptops */
+@media (min-width: 1024px) and (max-width: 1439px) {
+    .main-container {
+        flex-direction: row;
+        padding-top: 20px;
+        max-height: 100vh;
+    }
+
+    .main-container__sub {
+        width: 80vw;
+        padding-top: 20px;
+    }
+
+    .main-container__paragraph {
+        font-size: 1.2em;
+        margin-left: 30px;
+        margin-right: 30px;
+    }
+
+    .main-container__content {
+        padding: 40px;
+        width: 60vw;
+        flex-direction: row;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1440px) {
+    .main-container {
+        flex-direction: row;
+        padding-top: 20px;
+        max-height: 100vh;
+    }
+
+    .main-container__sub {
+        width: 80vw;
+        padding-top: 20px;
+    }
+
+    .main-container__paragraph {
+        font-size: 1.2em;
+        margin-left: 40px;
+        margin-right: 40px;
+    }
+
+    .main-container__content {
+        padding: 40px;
+        width: 60vw;
+        flex-direction: row;
+    }
+}
+
+
+/* NEW PAGE -- about.html */
+/* BASE STYLES  Always mobile first */
+.main-container {
+    display: flex;
+    flex-direction: column;
+    /* padding: 10px; */
+}
+
+/* HERO CONTAINER TEXT AND IMAGE */
+.main-container__hero h2 {
+    font-size: 1em;
+    margin-left:50px;
+    margin-right:50px;
+    margin-top:10px;
+}
+
+.main-container__hero img {
+    padding-top: 3vh;
+    height: auto;
+    max-height: 200px;
+    width: auto;
+    border-radius: 8px;
+    margin: 20px;
+}
+/*  */
+
+.main-container__sub {
+    height: fit-content;
+    padding: 20px;
+}
+
+.main-container__paragraph {
+    font-size: 1em;
+    margin: 10px 0;
+}
+
+.main-container__content {
+    padding: 20px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Tablets (portrait) */
+@media (min-width: 600px) and (max-width: 899px) {
+    .main-container {
+        flex-direction: column;
+        padding-top: 20px;
+    }
+
+    .main-container__sub {
+        width: 100vw;
+        padding-top: 30px;
+    }
+
+    .main-container__paragraph {
+        font-size: 1em;
+        margin-left: 5vw;
+        margin-right: 5vw;
+    }
+
+    .main-container__content {
+        padding: 10px;
+        width: 90vw;
+    }
+}
+
+/* Tablets (landscape) */
+@media (min-width: 900px) and (max-width: 1199px) {
+    .main-container {
+        flex-direction: row;
+        padding-top: 15px;
+    }
+
+    .main-container__hero {
+        padding: 20px;
+        max-width: 50vw;
+    }
+
+    .main-container__hero h2 {
+        font-size: 1.4em;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .main-container__sub {
+        width: 50vw;
+        padding-top: calc( var(--header-height) + 20px );
+    }
+
+    .main-container__paragraph {
+        font-size: 1.1em;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .main-container__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+/* Laptops */
+@media (min-width: 1200px) and (max-width: 1439px) {
+    .main-container {
+        flex-direction: row;
+        padding-top: 15px;
+    }
+
+    .main-container__hero {
+        padding: 20px;
+        max-width: 50vw;
+    }
+
+    .main-container__hero h2 {
+        font-size: 1.4em;
+        margin-left: 20px;
+        margin-right: 20px;
+    }
+
+    .main-container__sub {
+        width: 50vw;
+        padding-top: calc( var(--header-height) + 20px );
+    }
+
+    .main-container__paragraph {
+        font-size: 1.1em;
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+
+    .main-container__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+}
+
+/* Desktops */
+@media (min-width: 1440px) {
+    .main-container {
+        flex-direction: row;
+        padding-top: 15px;
+    }
+
+    .main-container__hero {
+        padding: 20px;
+        max-width: 50vw;
+        height: 100vw;
+    }
+
+    .main-container__hero img {
+        padding-top: 3vh;
+        height: 18vh;
+        max-height: 300px;
+        width: auto;
+        border-radius: 8px;
+        margin: 20px;
+    }
+
+    .main-container__hero h2 {
+        font-size: 2em;
+        margin-left: 200px;
+        margin-right: 200px;
+    }
+
+    .main-container__sub {
+        width: 50vw;
+        padding-top: calc( var(--header-height) + 20px );
+        height: 100vh;
+        justify-content: center;
+    }
+
+    .main-container__paragraph {
+        font-size: 1.1em;
+        margin-left: 100px;
+        margin-right: 100px;
+    }
+
+    .main-container__content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        padding: 20px;
+    }
+
+
 }

@@ -1,6 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9R23W2PX54"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-9R23W2PX54');
+    
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>LB Comms, LLC</title>
@@ -42,7 +51,7 @@
     <main>
         <div class="welcome-media">
             <video playsinline autoplay muted loop class="background-video">
-                <source src="assets/videos/mixkit-forest-treetops-532-hd-ready.mp4" type="video/mp4">
+                <source src="https://d3b5jmwslwfsc6.cloudfront.net/assets/videos/mixkit-forest-treetops-532-hd-ready.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="welcome-wrapper">
@@ -312,7 +321,7 @@
             </div>
             <div class="video-placeholder">
                 <video controls autoplay muted loop>
-                    <source src="assets/videos/lms_motorola_trailer_1 (1080p).mp4" type="video/mp4">
+                    <source src="https://d3b5jmwslwfsc6.cloudfront.net/assets/videos/lms_motorola_trailer_1%20(1080p).mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
             </div>
@@ -320,13 +329,31 @@
         <div class="publications-section">
             <h2>Publications</h2>
             <div class="articles-container">
+                <a href="https://www.pscmagazine-digital.com/pscs/0524_september_october_2024/MobilePagedArticle.action?articleId=2009605&app=false#articleId2009605" class="article-link" target="_blank">
+                    <div class="article">
+                        <img src="assets/articles/apco-logo.png" alt="Article Image" class="article-image">
+                        <h2>PSC Magazine</h2>
+                        <h3 class="article-publication">Safeguarding Emergency Communications Centers</h3>
+                        <p class="article-author">Mark Cady & Patrick Purcell</p>
+                        <p class="article-date">September 2024</p>
+                    </div>
+                </a>
                 <a href="https://www.pscmagazine-digital.com/pscs/0424_july_august_2024/MobilePagedArticle.action?articleId=1986817#articleId1986817" class="article-link" target="_blank">
                     <div class="article">
-                        <img src="assets/articles/SmallDosesBigReturns.jpeg" alt="Article Image" class="article-image">
+                        <img src="assets/articles/apco-logo.png" alt="Article Image" class="article-image">
                         <h2>PSC Magazine</h2>
                         <h3 class="article-publication">Small Doses, Big Returns?</h3>
                         <p class="article-author">Mark Cady</p>
                         <p class="article-date">June 2024</p>
+                    </div>
+                </a>
+                <a href="https://www.pscmagazine-digital.com/pscs/0124_january_february_2024/MobilePagedArticle.action?articleId=1941371#articleId1941371" class="article-link" target="_blank">
+                    <div class="article">
+                        <img src="assets/articles/apco-logo.png" alt="Article Image" class="article-image">
+                        <h2>PSC Magazine</h2>
+                        <h3 class="article-publication">The Indispensible Function</h3>
+                        <p class="article-author">Mark Cady</p>
+                        <p class="article-date">January 2024</p>
                     </div>
                 </a>
                 <!-- Add more articles as needed -->
@@ -334,7 +361,7 @@
         </div>
         <div class="about-section">
             <video class="background-video" playsinline autoplay muted loop>
-                <source src="assets/videos/mixkit-aerial-view-of-city-traffic-at-night-11-hd-ready.mp4" type="video/mp4">
+                <source src="https://d3b5jmwslwfsc6.cloudfront.net/assets/videos/mixkit-aerial-view-of-city-traffic-at-night-11-hd-ready.mp4" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
             <div class="about-content">
@@ -344,20 +371,26 @@
             </div>
         </div>
         <div class="form-wrapper">
-            <div id= "contact-form" class="contact-form-wrapper">
+            <div class="contact-form-wrapper">
                 <div class="contact-form-container">
                     <h2>Contact Us</h2>
-                    <form action="https://formspree.io/f/xvgprabl" method="POST" class="contact-form">
+                    <form id="contact-form" action="https://formspree.io/f/xvgprabl" method="POST" class="contact-form">
                         <input type="text" id="name" name="name" placeholder="Your Name" required>
                         <input type="email" id="email" name="email" placeholder="Your Email" required>
                         <input type="text" id="subject" name="subject" placeholder="Subject" required>
                         <textarea id="message" name="message" placeholder="Your Message" required></textarea>
                         
                         <!-- Add reCAPTCHA -->
-                        <div class="g-recaptcha" data-sitekey="YOUR_SITE_KEY"></div>
-                        
-                        <button type="submit">Send</button>
+                        <!-- <button class="g-recaptcha" data-sitekey="6LfzxCIqAAAAAHd45chOsrejXs2j3jRV-6MjKDAt"
+                    data-callback='onSubmit' data-action='submit'>Submit</button> -->
+                        <button type="submit">Submit</button>
                     </form>
+                    <script>
+                        function onSubmit(token) {
+                            console.log('reCAPTCHA token:', token); // Debugging log
+                            document.getElementById("contact-form").submit();
+                        }
+                    </script>
                 </div>
                 <div class="suggestion-box-container">
                     <div class="suggestion-box">
@@ -390,6 +423,8 @@
             </div>
         </div>
         <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <!-- CONTACT US FORM -->
+
     </main>
     <footer>
         <div class="footer-container">

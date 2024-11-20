@@ -315,6 +315,33 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 // Tableau embed code
+
+document.addEventListener("DOMContentLoaded", function() {
+    var divElement = document.getElementById('viz1723553823794');
+    var vizElement = divElement.getElementsByTagName('object')[0];
+
+    function setVizElementSize() {
+        var width = divElement.offsetWidth;
+        if (width > 800) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (width * 0.75) + 'px';
+        } else if (width > 500) {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (width * 0.75) + 'px';
+        } else {
+            vizElement.style.width = '100%';
+            vizElement.style.height = (width * 1.45) + 'px'; // Adjusted height ratio for smaller screens
+        }
+    }
+
+    setVizElementSize(); // Set initial size
+    window.addEventListener('resize', setVizElementSize); // Adjust size on window resize
+
+    var scriptElement = document.createElement('script');
+    scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+    vizElement.parentNode.insertBefore(scriptElement, vizElement);
+});
+
 document.addEventListener('DOMContentLoaded', function() {
     var divElement = document.getElementById('viz1723481853268');
     var vizElement = divElement.getElementsByTagName('object')[0];
@@ -341,4 +368,31 @@ document.addEventListener('DOMContentLoaded', function() {
     var scriptElement = document.createElement('script');
     scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
     vizElement.parentNode.insertBefore(scriptElement, vizElement);
+});
+
+document.addEventListener("DOMContentLoaded", function() {
+    function setVizElementSize(divId, aspectRatio) {
+        var divElement = document.getElementById(divId);
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        var width = divElement.offsetWidth;
+        vizElement.style.width = '100%';
+        vizElement.style.height = (width / aspectRatio) + 'px';
+    }
+
+    function initializeViz(divId, aspectRatio) {
+        setVizElementSize(divId, aspectRatio); // Set initial size
+        window.addEventListener('resize', function() {
+            setVizElementSize(divId, aspectRatio); // Adjust size on window resize
+        });
+
+        var divElement = document.getElementById(divId);
+        var vizElement = divElement.getElementsByTagName('object')[0];
+        var scriptElement = document.createElement('script');
+        scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js';
+        vizElement.parentNode.insertBefore(scriptElement, vizElement);
+    }
+
+    // Initialize visualizations with a fixed aspect ratio (e.g., 16:9)
+    initializeViz('viz1723553823794', 16 / 9);
+    initializeViz('viz1723481853268', 16 / 9);
 });

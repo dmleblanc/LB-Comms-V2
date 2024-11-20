@@ -1709,6 +1709,7 @@ button.toggle-details:hover {
     .main-container__hero {
         padding: 20px;
         max-width: 50vw;
+        height: 100vh;
     }
 
     .main-container__hero h2 {
@@ -1719,6 +1720,7 @@ button.toggle-details:hover {
 
     .main-container__sub {
         width: 50vw;
+        height: 100vh;
         padding-top: calc( var(--header-height) + 20px );
     }
 

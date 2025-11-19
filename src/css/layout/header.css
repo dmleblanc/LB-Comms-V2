@@ -1,0 +1,223 @@
+/**
+ * Header & Navigation Styles
+ * Fixed header with responsive navigation and hamburger menu
+ */
+
+/* Header Base - Mobile First */
+header {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  height: var(--header-height);
+  background-color: var(--color-black);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1em;
+  box-shadow: var(--shadow-sm);
+  z-index: var(--z-fixed);
+  transition: all var(--transition-normal);
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+}
+
+/* Logo */
+.logo-placeholder {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  padding: 0;
+}
+
+.logo-placeholder img {
+  height: 100%;
+  max-height: var(--header-height);
+  max-width: 250px;
+  transition: max-height var(--transition-normal);
+  align-content: center;
+  justify-content: center;
+  display: flex;
+  padding-left: 1em;
+}
+
+/* Desktop Navigation - Hidden by default (mobile-first) */
+.navigation {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  margin-left: auto;
+  padding-right: 1em;
+}
+
+.navigation a {
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 0.5em 1em;
+}
+
+.navigation button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  margin-left: 0.5em;
+  cursor: pointer;
+  height: 3.5vh;
+  align-content: center;
+  justify-content: center;
+  display: flexbox;
+  font-size: var(--font-size-xs);
+}
+
+.navigation button:hover {
+  background-color: var(--color-gray-dark);
+}
+
+/* Hamburger Menu - Visible by default (mobile-first) */
+.hamburger {
+  display: block;
+  font-size: 2em;
+  background: none;
+  border: none;
+  color: var(--color-white);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  padding-right: .25em;
+  padding-bottom: .75vh;
+}
+
+/* Header States - Large/Small */
+header.large img {
+  height: auto;
+  width: 100%;
+  max-width: 250px;
+  transition: width var(--transition-normal);
+}
+
+header.small img {
+  height: auto;
+  width: 100%;
+  max-width: 250px;
+  transition: width var(--transition-normal);
+}
+
+header.large {
+  padding: 25px 0;
+}
+
+header.small {
+  padding: 20px 0;
+}
+
+header .navigation a button,
+header .slide-menu a button {
+  font-size: var(--font-size-base);
+  transition: font-size var(--transition-normal);
+}
+
+header.small .navigation a button,
+header.small .slide-menu a button {
+  font-size: var(--font-size-xs);
+}
+
+/* Slide Menu - Mobile Navigation */
+.slide-menu {
+  position: fixed;
+  top: 0;
+  right: -100%;
+  width: 250px;
+  height: 100%;
+  background-color: var(--color-black);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  transition: right var(--transition-normal);
+  z-index: var(--z-fixed);
+  padding-top: 5vh;
+}
+
+.slide-menu.active {
+  right: 0;
+}
+
+.slide-menu .hamburger {
+  position: absolute;
+  top: .5em;
+  right: 1em;
+}
+
+.slide-menu a {
+  text-decoration: none;
+  color: var(--color-white);
+  padding: 0.5em 1em;
+  width: 100%;
+  text-align: center;
+}
+
+.slide-menu button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+  border: none;
+  padding: 0.5em 1em;
+  margin: 0.2em 0;
+  cursor: pointer;
+  width: 100%;
+}
+
+.slide-menu button:hover {
+  background-color: var(--color-gray-dark);
+}
+
+/* Tablets (Portrait & Landscape) */
+@media (min-width: 600px) and (max-width: 899px) {
+  .navigation {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  header.small img {
+    width: 20vw;
+  }
+}
+
+/* Laptops */
+@media (min-width: 900px) and (max-width: 1199px) {
+  .navigation {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  header.small img {
+    width: 18vw;
+  }
+}
+
+/* Desktops */
+@media (min-width: 1200px) {
+  .navigation {
+    display: flex;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  header.small img {
+    width: 15vw;
+  }
+}

@@ -1,0 +1,104 @@
+/**
+ * CSS Custom Properties (Variables)
+ * Centralized design tokens for consistency
+ */
+
+:root {
+  /* Layout */
+  --header-height: 5vh;
+  --max-content-width: 1200px;
+
+  /* Colors - Primary */
+  --color-primary: #163962;
+  --color-primary-dark: #0f2844;
+  --color-accent: #007BFF;
+  --color-accent-hover: #0056b3;
+
+  /* Colors - Neutral */
+  --color-black: #000000;
+  --color-white: #ffffff;
+  --color-gray-dark: #333;
+  --color-gray: #666;
+  --color-gray-light: #ccc;
+  --color-gray-lighter: #ddd;
+  --color-gray-lightest: #f0f0f0;
+  --color-background: #f9f9f9;
+
+  /* Colors - Service Cards */
+  --color-service-project-mgmt: rgb(43, 160, 2013);
+  --color-service-consulting: rgb(223, 160, 71);
+  --color-service-consultations: rgb(193, 30, 48);
+
+  /* Colors - UI States */
+  --color-success: #4CAF50;
+  --color-success-hover: #45a049;
+  --color-link: #007bff;
+
+  /* Spacing Scale */
+  --space-xs: 5px;
+  --space-sm: 10px;
+  --space-md: 20px;
+  --space-lg: 40px;
+  --space-xl: 60px;
+
+  /* Typography - Font Families */
+  --font-family-heading: 'Goldman', sans-serif;
+  --font-family-body: Arial, sans-serif;
+
+  /* Typography - Font Sizes */
+  --font-size-xs: 0.8em;
+  --font-size-sm: 0.9em;
+  --font-size-base: 1em;
+  --font-size-md: 1.1em;
+  --font-size-lg: 1.2em;
+  --font-size-xl: 1.5em;
+  --font-size-xxl: 2em;
+  --font-size-xxxl: 2.5em;
+
+  /* Typography - Line Heights */
+  --line-height-tight: 1;
+  --line-height-normal: 1.6;
+
+  /* Borders */
+  --border-radius-sm: 4px;
+  --border-radius-md: 8px;
+  --border-radius-lg: 10px;
+  --border-radius-xl: 15px;
+  --border-radius-round: 50%;
+
+  /* Shadows */
+  --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.1);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 4px 8px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 8px 12px rgba(0, 0, 0, 0.2);
+
+  /* Z-index Scale */
+  --z-base: 1;
+  --z-dropdown: 10;
+  --z-sticky: 100;
+  --z-fixed: 999;
+  --z-modal-backdrop: 1000;
+  --z-modal: 1001;
+
+  /* Transitions */
+  --transition-fast: 0.2s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+
+  /* Animation Timings */
+  --animation-duration-fade: 300ms;
+  --animation-duration-slide: 500ms;
+  --animation-duration-bounce: 2s;
+
+  /* Breakpoints (for JS use via getComputedStyle) */
+  --breakpoint-mobile: 600px;
+  --breakpoint-tablet: 900px;
+  --breakpoint-laptop: 1200px;
+  --breakpoint-desktop: 1440px;
+
+  /* Component-Specific */
+  --carousel-scroll-speed: 0.5;
+  --carousel-drag-multiplier: 3;
+  --form-blur-delay: 100ms;
+  --back-to-top-threshold: 300px;
+}

@@ -1,0 +1,79 @@
+/**
+ * Footer Styles
+ * Site footer with navigation links
+ */
+
+footer {
+  background-color: var(--color-gray-dark);
+  color: var(--color-white);
+  padding: var(--space-md) 0;
+  text-align: center;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: var(--max-content-width);
+  margin: 0 auto;
+  padding: 0 var(--space-md);
+}
+
+.footer-left {
+  flex: 1;
+}
+
+.footer-right {
+  flex: 1;
+  text-align: right;
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  display: inline;
+  margin-left: 15px;
+}
+
+.footer-links li:first-child {
+  margin-left: 0;
+}
+
+.footer-links a {
+  color: var(--color-white);
+  text-decoration: none;
+  transition: color var(--transition-normal);
+}
+
+.footer-links a:hover {
+  color: var(--color-gray-lighter);
+}
+
+/* Footer list items should always be visible */
+.footer ul,
+.footer li {
+  visibility: visible !important;
+  padding-top: var(--space-xs);
+}
+
+/* Mobile */
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-right {
+    text-align: center;
+    margin-top: var(--space-sm);
+  }
+
+  .footer-links li {
+    display: block;
+    margin: var(--space-xs) 0;
+  }
+}

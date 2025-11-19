@@ -1,0 +1,39 @@
+/**
+ * Swipe Down Arrow Indicator
+ */
+
+.swipe-down {
+  position: absolute;
+  bottom: var(--space-sm);
+  left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  color: var(--color-white);
+  font-size: var(--font-size-lg);
+  animation: bounce var(--animation-duration-bounce) infinite;
+  transition: transform var(--transition-slow), opacity var(--transition-slow);
+}
+
+.swipe-down img {
+  width: 30px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.swipe-down.hidden {
+  transform: translateY(100%);
+  opacity: 0;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateX(-50%) translateY(0);
+  }
+  40% {
+    transform: translateX(-50%) translateY(-10px);
+  }
+  60% {
+    transform: translateX(-50%) translateY(-5px);
+  }
+}

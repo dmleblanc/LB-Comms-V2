@@ -1,0 +1,39 @@
+/**
+ * Typography Styles
+ * Font definitions and text styling
+ */
+
+/* Headings */
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-family-heading);
+  font-weight: normal;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+/* Heading Sizes */
+h1 {
+  font-size: var(--font-size-xxxl);
+}
+
+h2 {
+  font-size: var(--font-size-xxl);
+}
+
+h3 {
+  font-size: var(--font-size-xl);
+}
+
+h4 {
+  font-size: var(--font-size-lg);
+}
+
+h5, h6 {
+  font-size: var(--font-size-base);
+}
+
+/* Paragraphs */
+p {
+  line-height: var(--line-height-normal);
+}

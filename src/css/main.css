@@ -1,0 +1,35 @@
+/**
+ * Main CSS Entry Point
+ * Imports all modular stylesheets in proper order
+ */
+
+/* Base - Foundation */
+@import './base/variables.css';
+@import './base/reset.css';
+@import './base/typography.css';
+
+/* Layout - Page Structure */
+@import './layout/header.css';
+@import './layout/footer.css';
+@import './layout/containers.css';
+
+/* Components - Reusable UI Elements */
+@import './components/carousel.css';
+@import './components/services.css';
+@import './components/specialties.css';
+@import './components/forms.css';
+@import './components/back-to-top.css';
+@import './components/swipe-down.css';
+@import './components/icons.css';
+@import './components/company-info.css';
+@import './components/publications.css';
+@import './components/training.css';
+@import './components/about-section.css';
+
+/* Pages - Page-Specific Styles */
+@import './pages/home.css';
+@import './pages/about.css';
+@import './pages/tableau.css';
+
+/* Utilities - Animations & Helpers */
+@import './utilities/animations.css';

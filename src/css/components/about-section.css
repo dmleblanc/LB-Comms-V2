@@ -1,0 +1,38 @@
+/**
+ * About Section
+ */
+
+.about-section {
+  position: relative;
+  padding: 50px var(--space-md);
+  color: var(--color-white);
+  text-align: center;
+  overflow: hidden;
+}
+
+.about-section img {
+  max-width: 60vw;
+  height: auto;
+  display: block;
+  margin: 0 auto;
+}
+
+.about-content {
+  position: relative;
+  max-width: 800px;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.5);
+  padding: var(--space-md);
+  border-radius: var(--border-radius-lg);
+  animation: fadeIn 2s ease-in-out;
+}
+
+.about-content h2 {
+  font-size: var(--font-size-xxxl);
+  margin-bottom: var(--space-md);
+}
+
+.about-content p {
+  font-size: var(--font-size-lg);
+  line-height: var(--line-height-normal);
+}

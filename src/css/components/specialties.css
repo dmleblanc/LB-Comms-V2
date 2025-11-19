@@ -1,0 +1,154 @@
+/**
+ * Specialties Component
+ * Expandable Fire/Police/Dispatch cards
+ */
+
+.parent-container {
+  display: flex;
+  justify-content: center;
+  background-color: #9dadbe;
+}
+
+.specialties-section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-md);
+  padding: var(--space-md);
+  justify-content: center;
+}
+
+.specialty-item {
+  background-color: var(--color-background);
+  border-radius: var(--border-radius-lg);
+  box-shadow: var(--shadow-lg);
+  overflow: hidden;
+  transition: transform var(--transition-normal);
+  width: 100%;
+  max-width: 400px;
+}
+
+.specialty-item img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: var(--space-sm);
+}
+
+.specialty-item:hover {
+  transform: translateY(-10px);
+}
+
+.specialty-content {
+  padding: var(--space-md);
+  display: flex;
+}
+
+.specialty-left {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.specialty-left h2 {
+  text-align: center;
+}
+
+.specialty-left ul {
+  justify-self: center;
+}
+
+.title-arrow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.expand-arrow {
+  cursor: pointer;
+  transition: transform var(--transition-normal);
+  margin-left: var(--space-sm);
+  color: #dee3e7;
+}
+
+.specialty-item.expanded .expand-arrow {
+  transform: rotate(180deg);
+}
+
+.specialty-details {
+  height: 0;
+  overflow: hidden;
+  transition: height var(--transition-normal);
+}
+
+.specialty-item.expanded .specialty-details {
+  padding-top: var(--space-sm);
+}
+
+button.toggle-details {
+  background-color: var(--color-accent);
+  border: none;
+  color: var(--color-white);
+  padding: var(--space-sm);
+  border-radius: var(--border-radius-sm);
+  cursor: pointer;
+  transition: background-color var(--transition-normal);
+}
+
+button.toggle-details:hover {
+  background-color: var(--color-accent-hover);
+}
+
+.parent-container ul li {
+  list-style-position: outside;
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding-left: var(--space-md);
+  opacity: 0;
+  text-align: center;
+}
+
+.parent-container ul li.visible {
+  opacity: 1;
+  animation: popOut 0.2s ease-out;
+}
+
+.parent-container ul li::before {
+  content: '\2713';
+  position: absolute;
+  left: 0;
+  color: green;
+  font-weight: bold;
+  transform: scale(0);
+  transition: transform var(--transition-fast);
+  text-align: center;
+  justify-self: center;
+}
+
+.parent-container ul li.visible::before {
+  transform: scale(1);
+  animation: popOut 0.2s ease-out;
+  padding-right: var(--space-sm);
+}
+
+@media (max-width: 767px) {
+  .parent-container ul li {
+    padding-left: 5vw;
+    text-align: left;
+  }
+}
+
+@keyframes popOut {
+  0% {
+    transform: scale(0);
+    opacity: 0;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}

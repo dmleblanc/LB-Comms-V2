@@ -18,12 +18,13 @@ jobs:
       with:
         node-version: '18'
         cache: 'npm'
+        cache-dependency-path: 'lbcomms-llc.com/package-lock.json'
 
     - name: Install dependencies
-      run: npm ci
+      run: cd lbcomms-llc.com && npm ci
 
     - name: Build project
-      run: npm run build
+      run: cd lbcomms-llc.com && npm run build
 
     - name: Deploy to cPanel via FTP
       uses: SamKirkland/FTP-Deploy-Action@v4.3.4
@@ -31,7 +32,7 @@ jobs:
         server: ${{ secrets.FTP_SERVER }}
         username: ${{ secrets.FTP_USERNAME }}
         password: ${{ secrets.FTP_PASSWORD }}
-        local-dir: ./dist/
+        local-dir: ./lbcomms-llc.com/dist/
         server-dir: /lbcomms-llc.com/
         dangerous-clean-slate: false
         exclude: |

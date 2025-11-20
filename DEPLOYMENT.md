@@ -7,7 +7,7 @@
 - cPanel FTP/SFTP credentials
 - GitHub repository admin access
 
-### Setup Instructions
+### Setup Instrucions
 
 #### 1. Get Your cPanel FTP Credentials
 

@@ -7,33 +7,59 @@
 **Branch**: master
 **Last Updated**: Nov 19, 2025 (Migrated to Modular Architecture)
 
-## Project Structure (✨ NEW MODULAR ARCHITECTURE)
+## Project Structure (✨ FULLY MODULAR ARCHITECTURE)
 ```
 LB-Comms-V2/
 ├── src/
-│   └── js/                         # 🆕 Modular JavaScript
-│       ├── main.js                 # Application entry point
-│       ├── config/
-│       │   └── constants.js        # All configuration & magic numbers
-│       ├── modules/
-│       │   ├── header.js           # Header & navigation (~70 lines)
-│       │   ├── carousel.js         # Image carousel (~175 lines)
-│       │   ├── forms.js            # Contact forms (~35 lines)
-│       │   ├── animations.js       # Scroll animations (~80 lines)
-│       │   ├── specialties.js      # Expandable cards (~40 lines)
-│       │   └── tableau.js          # Data visualizations (~60 lines)
-│       └── utils/
-│           └── dom.js              # DOM helper functions
+│   ├── js/                         # 🆕 Modular JavaScript (9 files)
+│   │   ├── main.js                 # Application entry point
+│   │   ├── config/
+│   │   │   └── constants.js        # Configuration & magic numbers
+│   │   ├── modules/
+│   │   │   ├── header.js           # Header & navigation (~70 lines)
+│   │   │   ├── carousel.js         # Image carousel (~175 lines)
+│   │   │   ├── forms.js            # Contact forms (~35 lines)
+│   │   │   ├── animations.js       # Scroll animations (~80 lines)
+│   │   │   ├── specialties.js      # Expandable cards (~40 lines)
+│   │   │   └── tableau.js          # Data visualizations (~60 lines)
+│   │   └── utils/
+│   │       └── dom.js              # DOM helper functions
+│   └── css/                        # 🆕 Modular CSS (22 files)
+│       ├── main.css                # CSS entry point with @imports
+│       ├── base/
+│       │   ├── variables.css       # 105+ CSS custom properties
+│       │   ├── reset.css           # Normalize & base styles
+│       │   └── typography.css      # Font definitions
+│       ├── layout/
+│       │   ├── header.css          # Header & navigation
+│       │   ├── footer.css          # Footer styles
+│       │   └── containers.css      # Layout containers
+│       ├── components/
+│       │   ├── carousel.css        # Image carousel
+│       │   ├── services.css        # Service cards
+│       │   ├── specialties.css     # Fire/Police/Dispatch cards
+│       │   ├── forms.css           # Contact form
+│       │   └── [7 more files]      # Other UI components
+│       ├── pages/
+│       │   ├── home.css            # index.html specific
+│       │   ├── about.css           # about.html specific
+│       │   └── tableau.css         # Data visualizations
+│       └── utilities/
+│           └── animations.css      # Keyframes & transitions
 ├── index.html          (445 lines) - Main landing page
 ├── about.html          (113 lines) - About page
-├── styles.css          (1,791 lines) - All styling
-├── scripts.js          (397 lines) - ⚠️ DEPRECATED - replaced by src/js/
-├── package.json                    # 🆕 Dependencies & npm scripts
-├── vite.config.js                  # 🆕 Build configuration
-├── .eslintrc.js                    # 🆕 Code quality rules
-├── .prettierrc                     # 🆕 Code formatting
-├── README.md                       # 🆕 Development documentation
-└── assets/
+├── scripts.js.deprecated           # ⚠️ DEPRECATED (Nov 19, 2025)
+├── styles.css.deprecated           # ⚠️ DEPRECATED (Nov 19, 2025)
+├── package.json                    # Dependencies & npm scripts
+├── vite.config.js                  # Build configuration
+├── .eslintrc.js                    # Code quality rules
+├── .prettierrc                     # Code formatting
+├── README.md                       # Development documentation
+├── MIGRATION.md                    # JS migration details
+├── CSS-MIGRATION.md                # CSS migration details
+├── DEPRECATED.md                   # Deprecated files info
+├── complete-css-migration.sh       # CSS automation script
+└── assets/                         # Static assets
     ├── images/
     │   ├── logos/                  # Company branding
     │   ├── sprites/                # UI icons
@@ -44,8 +70,8 @@ LB-Comms-V2/
 
 ## 🎯 Key Improvements (Nov 2025 Migration)
 
-### Before → After
-- ❌ Single 397-line `scripts.js` → ✅ 6 focused modules (460 total lines)
+### JavaScript Modularization
+- ❌ Single 397-line `scripts.js` → ✅ 9 focused modules (770 total lines)
 - ❌ 7 separate `DOMContentLoaded` listeners → ✅ 1 centralized initialization
 - ❌ Duplicate code (Tableau, form handlers) → ✅ Removed ~70 lines
 - ❌ No error handling for missing elements → ✅ Graceful degradation
@@ -53,11 +79,21 @@ LB-Comms-V2/
 - ❌ No build process → ✅ Vite with minification & tree-shaking
 - ❌ Global scope pollution → ✅ ES6 modules with proper encapsulation
 
+### CSS Modularization
+- ❌ Single 1,791-line `styles.css` → ✅ 22 organized modules
+- ❌ 1 CSS variable → ✅ 105+ custom properties (design system)
+- ❌ No organization → ✅ ITCSS-inspired architecture
+- ❌ Scattered media queries (17 duplicates) → ✅ Organized by component
+- ❌ Hardcoded values → ✅ Centralized design tokens
+- ❌ Difficult to find styles → ✅ Clear file structure
+- ❌ No CSS strategy → ✅ Base → Layout → Components → Pages → Utilities
+
 ### Build System Benefits
 - **Development**: Hot reload with `npm run dev`
-- **Production**: Optimized bundle (9.4KB JS + 21.9KB CSS gzipped)
+- **Production**: Optimized bundles (9.4KB JS + 4.8KB CSS gzipped = 14.2KB total)
 - **Code Quality**: ESLint + Prettier integration
 - **Browser Compat**: ES6+ with automatic polyfills if needed
+- **Build Time**: 139-183ms (blazing fast)
 
 ## Key Features
 

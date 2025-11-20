@@ -31,3 +31,9 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Deprecated files (kept for reference, not used by application)
+# Note: These are tracked in Git for historical reference
+# Safe to delete after 60 days (Jan 19, 2026)
+# scripts.js.deprecated
+# styles.css.deprecated

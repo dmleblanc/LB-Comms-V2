@@ -37,3 +37,18 @@ h5, h6 {
 p {
   line-height: var(--line-height-normal);
 }
+
+/* Mobile Typography */
+@media (max-width: 768px) {
+  h1 {
+    font-size: var(--font-size-xl);
+  }
+
+  h2 {
+    font-size: var(--font-size-lg);
+  }
+
+  h3 {
+    font-size: var(--font-size-md);
+  }
+}

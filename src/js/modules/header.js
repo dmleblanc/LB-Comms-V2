@@ -11,6 +11,8 @@ export class HeaderManager {
     this.header = $(SELECTORS.HEADER);
     this.hamburgers = $$(SELECTORS.HAMBURGER);
     this.slideMenu = $(SELECTORS.SLIDE_MENU);
+    this.menuOverlay = $(SELECTORS.MENU_OVERLAY);
+    this.closeMenu = $(SELECTORS.CLOSE_MENU);
     this.swipeDownArrow = $(SELECTORS.SWIPE_DOWN);
   }
 
@@ -58,11 +60,46 @@ export class HeaderManager {
       return;
     }
 
+    // Open menu
     this.hamburgers.forEach((button) => {
       button.addEventListener('click', () => {
-        this.slideMenu.classList.toggle(CSS_CLASSES.ACTIVE);
+        this.openMenu();
       });
     });
+
+    // Close menu with close button
+    ifExists(this.closeMenu, (btn) => {
+      btn.addEventListener('click', () => {
+        this.closeMenuHandler();
+      });
+    });
+
+    // Close menu with overlay click
+    ifExists(this.menuOverlay, (overlay) => {
+      overlay.addEventListener('click', () => {
+        this.closeMenuHandler();
+      });
+    });
+  }
+
+  /**
+   * Open the mobile menu
+   */
+  openMenu() {
+    this.slideMenu.classList.add(CSS_CLASSES.ACTIVE);
+    if (this.menuOverlay) {
+      this.menuOverlay.classList.add(CSS_CLASSES.ACTIVE);
+    }
+  }
+
+  /**
+   * Close the mobile menu
+   */
+  closeMenuHandler() {
+    this.slideMenu.classList.remove(CSS_CLASSES.ACTIVE);
+    if (this.menuOverlay) {
+      this.menuOverlay.classList.remove(CSS_CLASSES.ACTIVE);
+    }
   }
 
   /**

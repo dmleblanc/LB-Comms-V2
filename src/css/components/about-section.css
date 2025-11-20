@@ -4,35 +4,103 @@
 
 .about-section {
   position: relative;
-  padding: 50px var(--space-md);
+  padding: 60px var(--space-md);
   color: var(--color-white);
   text-align: center;
   overflow: hidden;
-}
-
-.about-section img {
-  max-width: 60vw;
-  height: auto;
-  display: block;
-  margin: 0 auto;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .about-content {
   position: relative;
-  max-width: 800px;
+  max-width: 700px;
   margin: 0 auto;
-  background: rgba(0, 0, 0, 0.5);
-  padding: var(--space-md);
+  background: rgba(0, 0, 0, 0.7);
+  padding: var(--space-xl);
   border-radius: var(--border-radius-lg);
   animation: fadeIn 2s ease-in-out;
+  backdrop-filter: blur(5px);
+}
+
+.about-logo {
+  max-width: 300px;
+  height: auto;
+  display: block;
+  margin: 0 auto var(--space-md);
+  filter: brightness(1.2);
 }
 
 .about-content h2 {
   font-size: var(--font-size-xxxl);
   margin-bottom: var(--space-md);
+  margin-top: 0;
 }
 
 .about-content p {
   font-size: var(--font-size-lg);
   line-height: var(--line-height-normal);
+  margin-bottom: var(--space-md);
+}
+
+.about-highlight {
+  font-size: var(--font-size-xl) !important;
+  font-weight: bold;
+  color: var(--color-white);
+  margin-top: var(--space-md) !important;
+}
+
+.about-cta {
+  display: inline-block;
+  margin-top: var(--space-md);
+  padding: 12px 30px;
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  text-decoration: none;
+  border-radius: var(--border-radius-md);
+  font-size: var(--font-size-lg);
+  font-weight: bold;
+  transition: all var(--transition-fast);
+  box-shadow: var(--shadow-md);
+}
+
+.about-cta:hover {
+  background-color: var(--color-accent-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+/* Mobile optimization */
+@media (max-width: 768px) {
+  .about-section {
+    padding: var(--space-lg) var(--space-sm);
+    min-height: 300px;
+  }
+
+  .about-content {
+    padding: var(--space-md);
+  }
+
+  .about-logo {
+    max-width: 200px;
+  }
+
+  .about-content h2 {
+    font-size: var(--font-size-xl);
+  }
+
+  .about-content p {
+    font-size: var(--font-size-base);
+  }
+
+  .about-highlight {
+    font-size: var(--font-size-lg) !important;
+  }
+
+  .about-cta {
+    font-size: var(--font-size-base);
+    padding: 10px 24px;
+  }
 }

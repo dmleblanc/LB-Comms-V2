@@ -40,10 +40,12 @@
         </div>
     </header>
     <div class="slide-menu">
+        <button class="close-menu" aria-label="Close menu">&times;</button>
         <a href="index.html"><button>Home</button></a>
         <a href="about.html"><button>About LB Comms</button></a>
         <a href="#contact-form"><button>Contact</button></a>
     </div>
+    <div class="menu-overlay"></div>
     <!-- Back to Top Arrow -->
     <div id="back-to-top" class="back-to-top">
         &#8679; <!-- Unicode for an up arrow -->
@@ -85,16 +87,14 @@
                 </div>
             </div>
                 <div class="swipe-down">
-                    <span>Swipe down</span>
-                    <img src="assets/images/sprites/downarrow.png" alt="Swipe down arrow" title="downward arrow">
+                    <span></span>
+                    <img src="assets/images/sprites/downarrow.png" alt="Scroll down arrow" title="downward arrow">
                 </div>
         </div>
         <div class="company-info">
-            <div class="heading-container">
-                <div class="company-info-shorttext">
+            <div class="company-info-text-container">
+                <div class="company-info-text">
                     <h1>Backed by 37 Years of Emergency Services Experience</h1>
-                </div>
-                <div class="company-info-longtext">
                     <p>
                         We understand that the safety of your crew is paramount.
                     </p>
@@ -128,7 +128,6 @@
                                 <li>Emergency Backup Systems</li>
                                 <li>License Management</li>
                             </ul>
-                            <button class="toggle-details">Read More</button>
                             <div class="specialty-details">
                                 <p>With 37 years of experience in Fire and EMS, LB Comms can ensure your department stays connected. We provide reliable mobile radios, emergency backup systems, and license management, so your team remains compliant and communication-ready. Trust us to keep your crew connected when it matters most.</p>
                             </div>
@@ -148,7 +147,6 @@
                                 <li>Network Integration</li>
                                 <li>License Management</li>
                             </ul>
-                            <button class="toggle-details">Read More</button>
                             <div class="specialty-details">
                                 <p>LB Comms enhances the efficiency of police operations by facilitating seamless communication between officers and other emergency services. We specialize in field communications setup, integrating networks for cohesive operations, and providing license management.</p>
                             </div>
@@ -168,7 +166,6 @@
                                 <li>Interoperability Strategy</li>
                                 <li>License Management</li>
                             </ul>
-                            <button class="toggle-details">Read More</button>
                             <div class="specialty-details">
                                 <p>We will ensure your dispatch center is always ready and operational. We provide continuity of operations planning, interoperability strategies, and license management, keeping your communication lines open, reliable, and compliant.</p>
                             </div>
@@ -271,6 +268,7 @@
                     <img src="assets/images/projects/southbridge-police/SouthbridgeConsole3.jpg" alt="Southbridge">
                 </div>
                 <button class="carousel-arrow right-arrow">&#9654;</button>
+                <div class="carousel-progress"></div>
             </div>
         </div>
         </div>
@@ -329,6 +327,16 @@
         <div class="publications-section">
             <h2>Publications</h2>
             <div class="articles-container">
+                <!-- NEW ARTICLE - Edit details below -->
+                <a href="https://www.pscmagazine-digital.com/pscs/0625_november_december_2025/MobilePagedArticle.action?articleId=2092063#articleId2092063&article_id=2092063" class="article-link" target="_blank">
+                    <div class="article">
+                        <img src="assets/articles/apco-logo.png" alt="Article Image" class="article-image">
+                        <h2>PSC Magazine</h2>
+                        <h3 class="article-publication">When Seconds Count</h3>
+                        <p class="article-author">Mark Cady</p>
+                        <p class="article-date">November 2025</p>
+                    </div>
+                </a>
                 <a href="https://www.pscmagazine-digital.com/pscs/0524_september_october_2024/MobilePagedArticle.action?articleId=2009605&app=false#articleId2009605" class="article-link" target="_blank">
                     <div class="article">
                         <img src="assets/articles/apco-logo.png" alt="Article Image" class="article-image">
@@ -365,9 +373,11 @@
                 Your browser does not support the video tag.
             </video>
             <div class="about-content">
+                <img src="assets/images/logos/LBC_Logo_H_rgb.png" alt="LB Communications Logo" class="about-logo" />
                 <h2>About Us</h2>
-                <p>LB Communications provides expert radio and telecommunications consulting services to Police, Fire, and Dispatch centers of all sizes. With our 37 years of experience working in emergency services, we will meet your radio needs quickly and effectively. </p>
-                <img src="assets/images/logos/LBC_Logo_H_rgb.png" alt="Logo" />
+                <p>LB Communications provides expert radio and telecommunications consulting services to Police, Fire, and Dispatch centers of all sizes.</p>
+                <p class="about-highlight">With 37 years of experience in emergency services, we deliver reliable solutions when it matters most.</p>
+                <a href="about.html" class="about-cta">Learn More About Us →</a>
             </div>
         </div>
         <div class="form-wrapper">

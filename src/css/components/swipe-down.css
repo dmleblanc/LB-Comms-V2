@@ -26,6 +26,17 @@
   opacity: 0;
 }
 
+/* Hide "Swipe" text on desktop, show "Scroll" instead */
+.swipe-down span::before {
+  content: "Scroll down";
+}
+
+@media (max-width: 768px) {
+  .swipe-down span::before {
+    content: "Swipe down";
+  }
+}
+
 @keyframes bounce {
   0%, 20%, 50%, 80%, 100% {
     transform: translateX(-50%) translateY(0);

@@ -15,6 +15,7 @@ export class CarouselManager {
     this.images = $$(SELECTORS.CAROUSEL_IMAGES + ' img', this.carousel);
     this.leftArrow = $(SELECTORS.LEFT_ARROW, this.carousel);
     this.rightArrow = $(SELECTORS.RIGHT_ARROW, this.carousel);
+    this.progressIndicator = $('.carousel-progress', this.carousel);
 
     // Carousel state
     this.state = {
@@ -40,6 +41,7 @@ export class CarouselManager {
     this.duplicateImagesForInfiniteScroll();
     this.setupImageBehavior();
     this.setupEventListeners();
+    this.setupProgressIndicator();
     this.startContinuousScroll();
   }
 
@@ -203,5 +205,18 @@ export class CarouselManager {
     } else if (this.carouselImages.scrollLeft <= 0) {
       this.carouselImages.scrollLeft += maxScrollLeft;
     }
+  }
+
+  /**
+   * Setup progress indicator showing project count
+   */
+  setupProgressIndicator() {
+    if (!this.progressIndicator) return;
+
+    // Count unique carousel sections (text + images groups)
+    const textElements = $$('.carousel-text', this.carousel);
+    const projectCount = textElements.length / 2; // Divide by 2 because of duplication
+
+    this.progressIndicator.textContent = `${Math.floor(projectCount)} Projects`;
   }
 }

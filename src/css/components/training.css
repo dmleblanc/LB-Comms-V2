@@ -30,6 +30,12 @@
 
 .training-section-text h1 {
   border-bottom: 2px solid #707070;
+  margin-bottom: var(--space-md);
+}
+
+.training-section-text p {
+  margin-top: var(--space-sm);
+  margin-bottom: var(--space-md);
 }
 
 .video-placeholder {

@@ -8,6 +8,8 @@ export const SELECTORS = {
   HEADER: 'header',
   HAMBURGER: '.hamburger',
   SLIDE_MENU: '.slide-menu',
+  MENU_OVERLAY: '.menu-overlay',
+  CLOSE_MENU: '.close-menu',
   SWIPE_DOWN: '.swipe-down',
   CAROUSEL: '.carousel',
   CAROUSEL_IMAGES: '.carousel-images',
